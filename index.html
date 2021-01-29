@@ -21,6 +21,14 @@
 
       <!-- Sidebar -->
       <div class="sidebar">
+        <!-- Test lista contacts -->
+        <ul>
+          <li v-for="contatto in contacts">
+            <img width="40px" height="40px":src="'./img/avatars/avatar' + contatto.avatar + '.jpg'">
+            {{contatto.name}}
+          </li>
+        </ul>
+        <!-- /Test lista contacts -->
 
       </div>
       <!-- /Sidebar -->
@@ -33,6 +41,8 @@
           <h1>Boolzap!</h1>
           <i class="fa fa-whatsapp" aria-hidden="true"></i>
           <input v-model="testoProva">
+
+
         </div>
         <!-- /Main -->
 
