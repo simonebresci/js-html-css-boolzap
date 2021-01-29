@@ -6,77 +6,105 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="./css/style.css">
-
     <!-- Fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <!-- Vue -->
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 
   </head>
   <body>
+    <!-- Background fixed (position absolute)-->
     <div class="bg-fixed">
-      <div class="top">
-
-      </div>
-      <div class="center">
-
-      </div>
-
+      <!-- Barra superiore -->
+      <div class="top"> </div>
+      <!-- Sfondo centrale -->
+      <div class="center"></div>
     </div>
+    <!-- /Background fixed -->
 
+    <!-- Container sito -->
     <div id="container">
 
-      <!-- Sidebar -->
+      <!-- Sidebar sx-->
       <div class="sidebar-sx">
 
+        <!-- Sidebar sx top -->
         <div class="sidebar-sx-top">
+          SIDEBAR-SX-TOP
+        </div>
+        <!-- /Sidebar sx top -->
+
+        <!-- Sidebar sx content -->
+        <div class="sidebar-sx-content">
+            <!-- Box notifiche -->
+            <div class="box-notify">
+                BOX NOTIFY
+            </div>
+            <!-- /Box notifiche -->
+
+            <!-- Box search -->
+            <div class="box-search">
+              BOX SEARCH
+            </div>
+            <!-- /Box search -->
+
+            <!-- Box contacts -->
+            <div class="box-contacts">
+              BOX CONTACTS
+              <!-- Test lista contacts -->
+              <ul>
+                <li v-for="contatto in contacts">
+                  <img width="40px" height="40px":src="'./img/avatars/avatar' + contatto.avatar + '.jpg'">
+                  {{contatto.name}}
+                </li>
+              </ul>
+              <!-- /Test lista contacts -->
+            </div>
+            <!-- /Box contacts -->
 
         </div>
-        <!-- Test lista contacts -->
-        <ul>
-          <li v-for="contatto in contacts">
-            <img width="40px" height="40px":src="'./img/avatars/avatar' + contatto.avatar + '.jpg'">
-            {{contatto.name}}
-          </li>
-        </ul>
-        <!-- /Test lista contacts -->
+        <!-- /Sidebar sx content -->
+
+
 
       </div>
-      <!-- /Sidebar -->
+      <!-- /Sidebar sx -->
 
-      <!-- Main-box -->
-      <div class="main-box">
+      <!-- Main -->
+      <div class="main">
 
-        <!-- Main -->
-        <div class="main">
+        <!-- Main top -->
+        <div class="main-top">
+          MAIN TOP
+        </div>
+        <!-- /Main top -->
 
-          <div class="main-top">
 
-          </div>
+
+
+        <!-- Main content -->
+        <div class="main-content">
           <h1>Boolzap!</h1>
           <i class="fa fa-whatsapp" aria-hidden="true"></i>
           <input v-model="testoProva">
-
-
         </div>
-        <!-- /Main -->
+        <!-- /Main content -->
 
 
         <!-- Main bottom -->
         <div class="main-bottom">
-
+          BOTTOM
         </div>
         <!-- /Main bottom -->
-
       </div>
-      <!-- /Main-box -->
+      <!-- /Main -->
 
-      </div>
-      <!-- /Container -->
 
-      <!-- Script JS -->
-      <script src="./js/main.js" charset="utf-8"></script>
-      <!-- /Script JS -->
+    </div>
+    <!-- /Container -->
+
+    <!-- Script JS -->
+    <script src="./js/main.js" charset="utf-8"></script>
+    <!-- /Script JS -->
   </body>
 </html>
