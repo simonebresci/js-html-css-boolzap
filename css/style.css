@@ -16,6 +16,13 @@ sidebar-sx box-contacts
 background-color: rgb(255,255,255);
 main-bottom
 background-color: rgb(243,238,234);
+icona action
+background-color: rgb(177,177,177);
+
+msg-inviato
+background-color: rgb(216,249,189);
+ora messaggi
+color: rgb(210,218,220);
 
 */
 
@@ -25,7 +32,42 @@ background-color: rgb(243,238,234);
   box-sizing: border-box;
 }
 
+/* CLASSI GENERICHE ***********************************************************/
+.user-icon{
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}
 
+.action-icon-style1 i{
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  /* transform: scale(2) translateX(50%); */
+  /* transform: translateX(50%); */
+  border: 1px solid black;
+  color: rgb(177,177,177);
+}
+
+.msg-inviato, .msg-ricevuto{
+  display: inline-block;
+  padding: 15px;
+  border-radius: 15px;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.msg-inviato{
+  text-align: right;
+  background-color: rgb(216,249,189);
+}
+
+.msg-ricevuto{
+  text-align: left;
+  background-color: white;
+}
+
+/* CLASSI GENERICHE ***********************************************************/
 /* PADDING PROVVISORIO *******************************************************/
 .sidebar-sx-top, .box-notify, .box-search{
   padding: 10px;
@@ -81,8 +123,18 @@ background-color: rgb(243,238,234);
 }
 
 .sidebar-sx-top, .main-top{
+  display: flex;
   height: 85px;
   background-color:rgb(234,234,234);
+}
+
+.sidebar-sx-top .user,.sidebar-sx-top .user-actions {
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-sx-top .user{
+  width: 380px;
 }
 
 .main-top, .main-bottom{
@@ -120,6 +172,8 @@ background-color: rgb(243,238,234);
 }
 
 .main-content{
+  display: flex;
+  flex-direction: column;
   height: calc(100% - 170px);
   overflow-y:auto;
   background-image: url('../img/backgrounds/mine.jpg');

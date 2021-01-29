@@ -19,7 +19,9 @@
 var app = new Vue ({
   el: '#container',
   data: {
-    testoProva: 'testo di prova',
+    nomeUtente: 'Mio Nome Utente',
+    messaggiInviati: [ 'messaggioI1','messaggioI2','messaggioI3',],  //Rifare struttura dato con ora invio!
+    messaggiRicevuti: [ 'messaggioR1','messaggioR2','messaggioR3',],
     contacts: [
     	{
     		name: 'Michele',
