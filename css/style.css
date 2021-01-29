@@ -58,12 +58,12 @@ color: rgb(210,218,220);
 }
 
 .msg-inviato{
-  text-align: right;
+  align-self: flex-end;
   background-color: rgb(216,249,189);
 }
 
 .msg-ricevuto{
-  text-align: left;
+  align-self: flex-start;
   background-color: white;
 }
 
