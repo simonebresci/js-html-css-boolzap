@@ -2,15 +2,30 @@
   padding:0;
   margin: 0;
   box-sizing: 0;
-  color: white;
 
 }
 
-/* .flex{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
+
+.bg-fixed{
+  position: fixed;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  top:0;
+  left: 0;
+
+}
+
+.bg-fixed .top{
+  height: 200px;
+  background-color: red;
+}
+
+.bg-fixed .center{
+  height: calc(100vh - 200px);
+  background-color: violet;
+}
+
 
 #container{
   display: flex;

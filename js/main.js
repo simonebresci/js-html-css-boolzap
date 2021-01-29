@@ -4,6 +4,17 @@
 // Copiate nel vostro data l'array di oggetti contacts, che trovate nella cartella drive, oppure qui in allegato. -->
 
 
+// JS
+// 1) lista contatti
+// 2) messaggi nel main
+
+
+// *GRAFICA*
+// 1) struttura + colori
+// 2) resize
+// 3) icone
+
+
 // Vue
 var app = new Vue ({
   el: '#container',
