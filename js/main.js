@@ -20,8 +20,36 @@ var app = new Vue ({
   el: '#container',
   data: {
     nomeUtente: 'Mio Nome Utente',
-    messaggiInviati: [ 'messaggioI1','messaggioI2','messaggioI3',],  //Rifare struttura dato con ora invio!
-    messaggiRicevuti: [ 'messaggioR1','messaggioR2','messaggioR3',],
+    messaggiInviati: [
+      {
+      messaggio: 'Inviato1',
+      ora      : '14:29'
+      },
+      {
+      messaggio: 'Inviato2',
+      ora      : '17:29'
+      },
+      {
+      messaggio: 'Inviato3',
+      ora      : '09:29'
+      },
+    ],
+    messaggiRicevuti: [
+      {
+      messaggio: 'Ricevuto1',
+      ora      : '14:29'
+      },
+      {
+      messaggio: 'Ricevuto2',
+      ora      : '17:29'
+      },
+      {
+      messaggio: 'Ricevuto3',
+      ora      : '09:29'
+      },
+    ],
+    // messaggiInviati: [ 'messaggioI1','messaggioI2','messaggioI3',],
+    // messaggiRicevuti: [ 'messaggioR1','messaggioR2','messaggioR3',],
     contacts: [
     	{
     		name: 'Michele',
