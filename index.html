@@ -32,14 +32,14 @@
         <div class="sidebar-sx-top">
 
           <div class="user">
-            <img class="user-icon" src="./img/avatars/avatar_1.jpg" alt="immagine utente">
+            <img class="user-icon" src="./img/avatars/avatar_io.jpg" alt="immagine utente">
             <span> {{nomeUtente}}</span>
           </div>
 
           <div class="user-actions action-icon-style1">
-            <i class="fa fa-circle-o-notch" aria-hidden="true"></i>
-            <i class="fa fa-comment" aria-hidden="true"></i>
-            <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+            <i class="fa fa-circle-o-notch fa-2x" aria-hidden="true"></i>
+            <i class="fa fa-comment fa-2x" aria-hidden="true"></i>
+            <i class="fa fa-ellipsis-v fa-2x" aria-hidden="true"></i>
           </div>
         </div>
         <!-- /Sidebar sx top -->
@@ -48,28 +48,41 @@
         <div class="sidebar-sx-content">
             <!-- Box notifiche -->
             <div class="box-notify">
-                BOX NOTIFY
+
+                <!-- Icona notifiche -->
+                <i class="fa fa-bell-slash" aria-hidden="true"></i>
+                <!-- Area testo -->
+                <div class="text">
+                  <div> Ricevi notifiche di nuovi messaggi </div>
+                  <div class="enableNotify"> Attiva notifiche desktop </div>
+                </div>
+                <!-- /Area testo -->
 
             </div>
             <!-- /Box notifiche -->
 
             <!-- Box search -->
             <div class="box-search">
-              BOX SEARCH
+              <div class="chatAll">
+                <div class="box-icon"><i class="fa fa-search fa-sm" aria-hidden="true"></i></div>
+                <input v-model="chatSearch">
+              </div>
+
             </div>
             <!-- /Box search -->
 
             <!-- Box contacts -->
             <div class="box-contacts">
-              BOX CONTACTS
-              <!-- Test lista contacts -->
+
+              <!-- Lista Contacts -->
               <ul>
-                <li v-for="contatto in contacts">
-                  <img width="40px" height="40px":src="'./img/avatars/avatar' + contatto.avatar + '.jpg'">
+                <li class="el-lista-contatto" v-for="contatto in contacts">
+                  <img class="user-icon" :src="'./img/avatars/avatar' + contatto.avatar + '.jpg'">
                   {{contatto.name}}
                 </li>
               </ul>
-              <!-- /Test lista contacts -->
+              <!-- Lista contacts -->
+
             </div>
             <!-- /Box contacts -->
 
@@ -86,7 +99,17 @@
 
         <!-- Main top -->
         <div class="main-top">
-          MAIN TOP
+          <div class="user">
+            <img class="user-icon" src="./img/avatars/avatar_1.jpg" alt="immagine utente">
+            <span> {{nomeUtente}}</span>
+            <span> Ultimo accesso alle </span>
+          </div>
+
+          <div class="user-actions action-icon-style1">
+            <i class="fa fa-search fa-2x" aria-hidden="true"></i>
+            <i class="fa fa-paperclip fa-2x" aria-hidden="true"></i>
+            <i class="fa fa-ellipsis-v fa-2x" aria-hidden="true"></i>
+          </div>
         </div>
         <!-- /Main top -->
 
@@ -98,23 +121,23 @@
 
 
           <div class="msg-inviato">
-            <span>{{messaggiInviati[0].messaggio}}</span>
-            <span>{{messaggiInviati[0].ora}}</span>
+            <span class='msg'>{{messaggiInviati[0].messaggio}}</span>
+            <span class='time'>{{messaggiInviati[0].ora}}</span>
           </div>
 
           <div class="msg-ricevuto">
-            <span>{{messaggiRicevuti[0].messaggio}}</span>
-            <span>{{messaggiRicevuti[0].ora}}</span>
+            <span class='msg'>{{messaggiRicevuti[0].messaggio}}</span>
+            <span class='time'>{{messaggiRicevuti[0].ora}}</span>
           </div>
 
           <div class="msg-inviato">
-            <span>{{messaggiInviati[1].messaggio}}</span>
-            <span>{{messaggiInviati[1].ora}}</span>
+            <span class='msg'>{{messaggiInviati[1].messaggio}}</span>
+            <span class='time'>{{messaggiInviati[1].ora}}</span>
           </div>
 
           <div class="msg-ricevuto">
-            <span>{{messaggiRicevuti[2].messaggio}}</span>
-            <span>{{messaggiRicevuti[2].ora}}</span>
+            <span class='msg'>{{messaggiRicevuti[2].messaggio}}</span>
+            <span class='time'>{{messaggiRicevuti[2].ora}}</span>
           </div>
 
 
@@ -138,7 +161,9 @@
 
         <!-- Main bottom -->
         <div class="main-bottom">
-          BOTTOM
+          <i class="fa fa-search fa-2x" aria-hidden="true"></i>
+          <input class="new-message" v-model="newMessage">
+          <i class="fa fa-ellipsis-v fa-2x" aria-hidden="true"></i>
         </div>
         <!-- /Main bottom -->
       </div>

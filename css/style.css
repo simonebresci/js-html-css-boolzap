@@ -12,6 +12,12 @@ sidebar-sx
 background-color: rgb(250,250,250);
 sidebar-sx box-notify
 background-color: rgb(142,218,252);
+sidebar-sx box-notify bell background
+background-color: rgb(242, 241, 255);
+box-chatSearch search icon
+color: rgb(184,184,184);
+
+
 sidebar-sx box-contacts
 background-color: rgb(255,255,255);
 main-bottom
@@ -22,7 +28,7 @@ background-color: rgb(177,177,177);
 msg-inviato
 background-color: rgb(216,249,189);
 ora messaggi
-color: rgb(210,218,220);
+color: rgb(190,190,190);
 
 */
 
@@ -39,18 +45,32 @@ color: rgb(210,218,220);
   border-radius: 50%;
 }
 
+
+
+
 .action-icon-style1 i{
   width: 32px;
-  height: 32px;
   text-align: center;
-  /* transform: scale(2) translateX(50%); */
-  /* transform: translateX(50%); */
-  border: 1px solid black;
+  /* border: 1px solid black; */
   color: rgb(177,177,177);
+  margin-right: 10px;
 }
 
+.action-icon-style1 i:last-child{
+   margin-right: 0px;
+}
+
+/* Mettere in funzione questo */
+/* .action-icon-style1 :not(i:last-child){
+  margin-right: 5px;
+  background-color: red;
+} */
+
+
 .msg-inviato, .msg-ricevuto{
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
   padding: 15px;
   border-radius: 15px;
   color: black;
@@ -60,6 +80,11 @@ color: rgb(210,218,220);
 .msg-inviato{
   align-self: flex-end;
   background-color: rgb(216,249,189);
+}
+
+.msg-inviato .time, .msg-ricevuto .time{
+  align-self: flex-end;
+  color: rgb(190,190,190);
 }
 
 .msg-ricevuto{
@@ -77,9 +102,6 @@ color: rgb(210,218,220);
   padding: 10px;
 }
 
-.box-contacts{
-  padding:20px;
-}
 
 /* PADDING PROVVISORIO *******************************************************/
 
@@ -124,6 +146,8 @@ color: rgb(210,218,220);
 
 .sidebar-sx-top, .main-top{
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   height: 85px;
   background-color:rgb(234,234,234);
 }
@@ -147,9 +171,30 @@ color: rgb(210,218,220);
 }
 
 .sidebar-sx-content .box-notify{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   height: 100px;
   background-color: rgb(142,218,252);
+}
 
+.sidebar-sx-content .box-notify i{
+  color: rgb(142,218,252);
+  background-color: rgb(242, 241, 255);
+  border-radius: 50%;
+  padding:15px;
+}
+
+.sidebar-sx-content .box-notify .text{
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.sidebar-sx-content .box-notify .text .enableNotify{
+  display: inline-block;
+  vertical-align: middle;
+  color: grey;            /* Controllare colore preciso */
+  text-decoration: underline;
 }
 
 .sidebar-sx-content .box-search{
@@ -158,11 +203,45 @@ color: rgb(210,218,220);
 
 }
 
+.sidebar-sx-content .box-search .chatAll{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+
+.sidebar-sx-content .box-search .chatAll .box-icon{
+  text-align: center;
+  width: 15%;
+}
+
+.sidebar-sx-content .box-search .chatAll .box-icon i{
+  color: rgb(184,184,184);
+}
+
+.sidebar-sx-content .box-search .chatAll input{
+  width: 70%;
+  color: rgb(184,184,184);
+  border: 0px solid black;
+  /*border-radius: 30px;*/ /* NON FUNZIONA */
+}
+
 .sidebar-sx-content .box-contacts{
   height: calc(100% - 100px - 60px ); /* 100% - box-notify - box-search */
   background-color: rgb(255,255,255);
   overflow-y: scroll;
+}
 
+.sidebar-sx-content .box-contacts .el-lista-contatto{
+  border-bottom: 1px solid rgb(244,244,244); /* mettere colore preciso */
+  padding: 10px;
+}
+
+.sidebar-sx-content .box-contacts .el-lista-contatto img{
+  vertical-align: middle;
+  margin-right: 15px;
 }
 
 
@@ -170,6 +249,11 @@ color: rgb(210,218,220);
   width: 65%;
   height: 100%;
 }
+
+.main-top .user .user-icon{
+  vertical-align: middle;
+}
+
 
 .main-content{
   display: flex;
@@ -180,8 +264,20 @@ color: rgb(210,218,220);
 }
 
 .main-bottom{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   height: 85px;
   background-color: rgb(234,234,234);
+}
+
+.main-bottom .new-message{
+  width: 80%;
+  height: 100%;
+}
+
+.main-bottom i{
+  color: rgb(184,184,184);
 }
 
 /* DEBUGGG ********************************************************************/

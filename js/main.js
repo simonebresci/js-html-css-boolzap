@@ -20,6 +20,8 @@ var app = new Vue ({
   el: '#container',
   data: {
     nomeUtente: 'Mio Nome Utente',
+    chatSearch: 'cerca o inizia una nuova chat',
+    newMessage: 'Nuovo messaggio',
     messaggiInviati: [
       {
       messaggio: 'Inviato1',
