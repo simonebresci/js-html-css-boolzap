@@ -19,8 +19,8 @@
 var app = new Vue ({
   el: '#container',
   data: {
-    nomeUtente: 'Mio Nome Utente',
-    chatSearch: 'cerca o inizia una nuova chat',
+    nomeUtente: 'Nome Utente',
+    chatSearch: 'Cerca o inizia una nuova chat',
     newMessage: 'Nuovo messaggio',
     messaggiInviati: [
       {
@@ -120,23 +120,6 @@ var app = new Vue ({
     		],
     	},
     	{
-    		name: 'Luisa',
-    		avatar: '_4',
-    		visible: true,
-    		messages: [
-    			{
-    				date: '10/01/2020 15:30:55',
-    				text: 'Lo sai che ha aperto una nuova pizzeria?',
-    				status: 'sent'
-    			},
-    			{
-    				date: '10/01/2020 15:50:00',
-    				text: 'Si, ma preferirei andare al cinema',
-    				status: 'received'
-    			}
-    		],
-    	},
-      {
     		name: 'Luisa',
     		avatar: '_4',
     		visible: true,

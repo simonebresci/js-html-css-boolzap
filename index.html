@@ -105,8 +105,11 @@
         <div class="main-top">
           <div class="user">
             <img class="user-icon" src="./img/avatars/avatar_1.jpg" alt="immagine utente">
-            <span> {{nomeUtente}}</span>
-            <span> Ultimo accesso alle </span>
+            <div class="user-text">
+              <div class="row-1"> {{nomeUtente}}</div>
+              <div class="row-2"> Ultimo accesso oggi alle </div>
+            </div>
+
           </div>
 
           <div class="user-actions action-icon-style1">
@@ -165,9 +168,9 @@
 
         <!-- Main bottom -->
         <div class="main-bottom">
-          <i class="fa fa-search fa-2x" aria-hidden="true"></i>
+          <i class="fa fa-smile-o fa-2x" aria-hidden="true"></i>
           <input class="new-message" v-model="newMessage">
-          <i class="fa fa-ellipsis-v fa-2x" aria-hidden="true"></i>
+          <i class="fa fa-microphone fa-2x" aria-hidden="true"></i>
         </div>
         <!-- /Main bottom -->
       </div>
@@ -182,3 +185,15 @@
     <!-- /Script JS -->
   </body>
 </html>
+
+<!-- MIGLIORIE DA FARE -->
+<!--
+1)Inserire commenti
+2)Pulire codice
+
+Creare oggetti generici
+1) Utente + 2 righe di testo
+2) icone grigie cliccabili
+
+
+ -->

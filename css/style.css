@@ -29,6 +29,10 @@ background-color: rgb(243,238,234);
 icona action
 background-color: rgb(177,177,177);
 
+
+main-top user user 2nd row
+color: rgb(154,168,181);
+
 msg-inviato
 background-color: rgb(216,249,189);
 ora messaggi
@@ -56,11 +60,11 @@ color: rgb(190,190,190);
 
 
 .action-icon-style1 i{
-  width: 32px;
+  /* width: 36px; */
   text-align: center;
   /* border: 1px solid black; */
   color: rgb(177,177,177);
-  margin-right: 10px;
+  margin-right: 15px;
 }
 
 .action-icon-style1 i:last-child{
@@ -92,6 +96,8 @@ color: rgb(190,190,190);
 .msg-inviato .time, .msg-ricevuto .time{
   align-self: flex-end;
   color: rgb(190,190,190);
+  font-size: 16px;
+  transform: translate(10px, 10px);
 }
 
 .msg-ricevuto{
@@ -100,17 +106,16 @@ color: rgb(190,190,190);
 }
 
 /* CLASSI GENERICHE ***********************************************************/
-/* PADDING PROVVISORIO *******************************************************/
-.sidebar-sx-top, .box-notify, .box-search{
+/* PADDING ********************************************************************/
+
+.box-search{
   padding: 10px;
 }
-
-.main-top, .main-content, .main-bottom{
-  padding: 10px;
+.sidebar-sx-top, .box-notify, .main-top, .main-content, .main-bottom{
+  padding: 15px;
 }
 
-
-/* PADDING PROVVISORIO *******************************************************/
+/* PADDING  *******************************************************************/
 
 
 
@@ -238,11 +243,11 @@ color: rgb(190,190,190);
 }
 
 .sidebar-sx-content .box-search .chatAll input{
-  width: 70%;
+  width: 85%;
   color: rgb(184,184,184);
-  border: 0px solid black;
-  /*border-radius: 30px;*/ /* NON FUNZIONA */
+  border: 0px;
 }
+
 
 .sidebar-sx-content .box-contacts{
   height: calc(100% - 100px - 60px ); /* 100% - box-notify - box-search */
@@ -271,6 +276,17 @@ color: rgb(190,190,190);
   margin-right: 15px;
 }
 
+.main-top .user .user-text{
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 15px;
+}
+
+.main-top .user .user-text .row-2{
+  color: rgb(154,168,181);
+  font-size: 16px;
+}
+
 
 .main-content{
   display: flex;
@@ -291,10 +307,14 @@ color: rgb(190,190,190);
 .main-bottom .new-message{
   width: 80%;
   height: 100%;
+  color: rgb(184,184,184);
+  border: 0px;
+  padding: 20px;
+  border-radius: 5px;
 }
 
 .main-bottom i{
-  color: rgb(184,184,184);
+  color: rgb(177,177,177);
 }
 
 /* DEBUGGG ********************************************************************/
