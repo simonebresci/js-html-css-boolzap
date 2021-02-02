@@ -4,17 +4,6 @@
 // Copiate nel vostro data l'array di oggetti contacts, che trovate nella cartella drive, oppure qui in allegato. -->
 
 
-// JS
-// 1) lista contatti
-// 2) messaggi nel main
-
-
-// *GRAFICA*
-// 1) struttura + colori
-// 2) resize
-// 3) icone
-
-
 // Vue
 var app = new Vue ({
   el: '#container',
@@ -23,36 +12,6 @@ var app = new Vue ({
     chatSearch: 'Cerca o inizia una nuova chat',
     newMessage: 'Nuovo messaggio',
     utenteSelezionato: 0,
-    // messaggiInviati: [
-    //   {
-    //   messaggio: 'Inviato1',
-    //   ora      : '14:29'
-    //   },
-    //   {
-    //   messaggio: 'Inviato2',
-    //   ora      : '17:29'
-    //   },
-    //   {
-    //   messaggio: 'Inviato3',
-    //   ora      : '09:29'
-    //   },
-    // ],
-    // messaggiRicevuti: [
-    //   {
-    //   messaggio: 'Ricevuto1',
-    //   ora      : '14:29'
-    //   },
-    //   {
-    //   messaggio: 'Ricevuto2',
-    //   ora      : '17:29'
-    //   },
-    //   {
-    //   messaggio: 'Ricevuto3',
-    //   ora      : '09:29'
-    //   },
-    // ],
-    // messaggiInviati: [ 'messaggioI1','messaggioI2','messaggioI3',],
-    // messaggiRicevuti: [ 'messaggioR1','messaggioR2','messaggioR3',],
     contacts: [
     	{
     		name: 'Michele',
@@ -145,20 +104,38 @@ var app = new Vue ({
 
 
     },
-    sendMessage: function(){
-      let i = this.utenteSelezionato;
-      let newMsgIndex = this.contacts[i].messages.length;
+    sendMessage: function(index){
+      const i = this.utenteSelezionato;
+      const msg = this.newMessage;
+      const time = new Date()
       // Crea nuovo oggetto in contacts
-      this.contacts[i].messages[newMsgIndex] ={
-        date: 'oggi',
-        text: 'Messaggio nuovo',
+      this.contacts[i].messages.push({
+        date: new Date(),
+        text: msg ,
         status: 'sent'
-      }
+      });
 
-      // Forza rendering a video
-      this.$forceUpdate();
+      this.setTimeoutMethod();
 
+    },
+
+    setTimeoutMethod: function(){
+      // alert('avvio autoResponder');
+      setTimeout(this.autoResponder, 1000);
+    },
+
+    autoResponder: function(){
+      const i = this.utenteSelezionato;
+      // alert(this.utenteSelezionato);
+      // alert('eseguo dopo timeout');
+      this.contacts[i].messages.push({
+        date: new Date(),
+        text: 'ok',
+        status: 'received'
+      });
+      // alert('SendMessage eseguito');
     }
+
   }
 
 });
