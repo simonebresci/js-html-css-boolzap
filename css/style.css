@@ -33,7 +33,7 @@ background-color: rgb(177,177,177);
 main-top user user 2nd row
 color: rgb(154,168,181);
 
-msg-inviato
+sent
 background-color: rgb(216,249,189);
 ora messaggi
 color: rgb(190,190,190);
@@ -78,7 +78,7 @@ color: rgb(190,190,190);
 } */
 
 
-.msg-inviato, .msg-ricevuto{
+.sent, .received{
   display: flex;
   flex-direction: column;
   min-width: 200px;
@@ -88,19 +88,19 @@ color: rgb(190,190,190);
   margin-bottom: 10px;
 }
 
-.msg-inviato{
+.sent{
   align-self: flex-end;
   background-color: rgb(216,249,189);
 }
 
-.msg-inviato .time, .msg-ricevuto .time{
+.sent .time, .received .time{
   align-self: flex-end;
   color: rgb(190,190,190);
   font-size: 16px;
   transform: translate(10px, 10px);
 }
 
-.msg-ricevuto{
+.received{
   align-self: flex-start;
   background-color: white;
 }

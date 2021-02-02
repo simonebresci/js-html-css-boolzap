@@ -127,38 +127,25 @@
         <div class="main-content">
 
 
-          <div class="msg-inviato">
-            <span class='msg'>{{messaggiInviati[0].messaggio}}</span>
-            <span class='time'>{{messaggiInviati[0].ora}}</span>
-          </div>
-
-          <div class="msg-ricevuto">
-            <span class='msg'>{{messaggiRicevuti[0].messaggio}}</span>
-            <span class='time'>{{messaggiRicevuti[0].ora}}</span>
-          </div>
-
-          <div class="msg-inviato">
-            <span class='msg'>{{messaggiInviati[1].messaggio}}</span>
-            <span class='time'>{{messaggiInviati[1].ora}}</span>
-          </div>
-
-          <div class="msg-ricevuto">
-            <span class='msg'>{{messaggiRicevuti[2].messaggio}}</span>
-            <span class='time'>{{messaggiRicevuti[2].ora}}</span>
-          </div>
+          <!-- Test con Fabio -->
+          <input v-model="utenteSelezionato"> /* Selettore provvisorio utente*/
 
 
-          <!-- <div class="msg-ricevuto">
-            <span>{{messaggiRicevuti[0]}}</span>
-          </div>
-
-          <div class="msg-inviato">
-            <span>{{messaggiInviati[1]}}</span>
-          </div>
-
-          <div class="msg-ricevuto">
-            <span>{{messaggiRicevuti[2]}}</span>
+          <!-- Messaggio 0 -->
+          <!-- <div :class="contacts[utenteSelezionato].messages[0].status">
+            <span class="msg"> {{contacts[utenteSelezionato].messages[0].text}} </span>
+            <span class="time"> {{contacts[utenteSelezionato].messages[0].date}} </span>
           </div> -->
+          <!-- /Messaggio 0 -->
+
+          <!-- Lista messaggi -->
+          <div v-for="(msg, i) in contacts[utenteSelezionato].messages" :class="contacts[utenteSelezionato].messages[i].status">
+            <span class="msg"> {{contacts[utenteSelezionato].messages[i].text}} </span>
+            <span class="time"> {{contacts[utenteSelezionato].messages[i].date}} </span>
+          </div>
+          <!-- /Lista messaggi -->
+
+
 
 
 
