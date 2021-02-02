@@ -140,7 +140,7 @@
         <!-- Main bottom -->
         <div class="main-bottom">
           <i class="fa fa-smile-o fa-2x" aria-hidden="true"></i>
-          <input class="new-message" v-model="newMessage">
+          <input class="new-message" v-model="newMessage" @keyup.enter="sendMessage">
           <i class="fa fa-microphone fa-2x" aria-hidden="true"></i>
         </div>
         <!-- /Main bottom -->

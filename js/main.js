@@ -23,34 +23,34 @@ var app = new Vue ({
     chatSearch: 'Cerca o inizia una nuova chat',
     newMessage: 'Nuovo messaggio',
     utenteSelezionato: 0,
-    messaggiInviati: [
-      {
-      messaggio: 'Inviato1',
-      ora      : '14:29'
-      },
-      {
-      messaggio: 'Inviato2',
-      ora      : '17:29'
-      },
-      {
-      messaggio: 'Inviato3',
-      ora      : '09:29'
-      },
-    ],
-    messaggiRicevuti: [
-      {
-      messaggio: 'Ricevuto1',
-      ora      : '14:29'
-      },
-      {
-      messaggio: 'Ricevuto2',
-      ora      : '17:29'
-      },
-      {
-      messaggio: 'Ricevuto3',
-      ora      : '09:29'
-      },
-    ],
+    // messaggiInviati: [
+    //   {
+    //   messaggio: 'Inviato1',
+    //   ora      : '14:29'
+    //   },
+    //   {
+    //   messaggio: 'Inviato2',
+    //   ora      : '17:29'
+    //   },
+    //   {
+    //   messaggio: 'Inviato3',
+    //   ora      : '09:29'
+    //   },
+    // ],
+    // messaggiRicevuti: [
+    //   {
+    //   messaggio: 'Ricevuto1',
+    //   ora      : '14:29'
+    //   },
+    //   {
+    //   messaggio: 'Ricevuto2',
+    //   ora      : '17:29'
+    //   },
+    //   {
+    //   messaggio: 'Ricevuto3',
+    //   ora      : '09:29'
+    //   },
+    // ],
     // messaggiInviati: [ 'messaggioI1','messaggioI2','messaggioI3',],
     // messaggiRicevuti: [ 'messaggioR1','messaggioR2','messaggioR3',],
     contacts: [
@@ -137,226 +137,29 @@ var app = new Vue ({
     			}
     		],
     	},
-      //  TEST SCROLL TEST SCROLL TEST SCROLL TEST SCROLL TEST SCROLL TEST SCROLL
-      // {
-    	// 	name: 'Luisa',
-    	// 	avatar: '_4',
-    	// 	visible: true,
-    	// 	messages: [
-    	// 		{
-    	// 			date: '10/01/2020 15:30:55',
-    	// 			text: 'Lo sai che ha aperto una nuova pizzeria?',
-    	// 			status: 'sent'
-    	// 		},
-    	// 		{
-    	// 			date: '10/01/2020 15:50:00',
-    	// 			text: 'Si, ma preferirei andare al cinema',
-    	// 			status: 'received'
-    	// 		}
-    	// 	],
-    	// },
-      // {
-    	// 	name: 'Luisa',
-    	// 	avatar: '_4',
-    	// 	visible: true,
-    	// 	messages: [
-    	// 		{
-    	// 			date: '10/01/2020 15:30:55',
-    	// 			text: 'Lo sai che ha aperto una nuova pizzeria?',
-    	// 			status: 'sent'
-    	// 		},
-    	// 		{
-    	// 			date: '10/01/2020 15:50:00',
-    	// 			text: 'Si, ma preferirei andare al cinema',
-    	// 			status: 'received'
-    	// 		}
-    	// 	],
-    	// },
-      // {
-    	// 	name: 'Luisa',
-    	// 	avatar: '_4',
-    	// 	visible: true,
-    	// 	messages: [
-    	// 		{
-    	// 			date: '10/01/2020 15:30:55',
-    	// 			text: 'Lo sai che ha aperto una nuova pizzeria?',
-    	// 			status: 'sent'
-    	// 		},
-    	// 		{
-    	// 			date: '10/01/2020 15:50:00',
-    	// 			text: 'Si, ma preferirei andare al cinema',
-    	// 			status: 'received'
-    	// 		}
-    	// 	],
-    	// },
-      // {
-    	// 	name: 'Luisa',
-    	// 	avatar: '_4',
-    	// 	visible: true,
-    	// 	messages: [
-    	// 		{
-    	// 			date: '10/01/2020 15:30:55',
-    	// 			text: 'Lo sai che ha aperto una nuova pizzeria?',
-    	// 			status: 'sent'
-    	// 		},
-    	// 		{
-    	// 			date: '10/01/2020 15:50:00',
-    	// 			text: 'Si, ma preferirei andare al cinema',
-    	// 			status: 'received'
-    	// 		}
-    	// 	],
-    	// },
-      // {
-    	// 	name: 'Luisa',
-    	// 	avatar: '_4',
-    	// 	visible: true,
-    	// 	messages: [
-    	// 		{
-    	// 			date: '10/01/2020 15:30:55',
-    	// 			text: 'Lo sai che ha aperto una nuova pizzeria?',
-    	// 			status: 'sent'
-    	// 		},
-    	// 		{
-    	// 			date: '10/01/2020 15:50:00',
-    	// 			text: 'Si, ma preferirei andare al cinema',
-    	// 			status: 'received'
-    	// 		}
-    	// 	],
-    	// },
-      // {
-    	// 	name: 'Luisa',
-    	// 	avatar: '_4',
-    	// 	visible: true,
-    	// 	messages: [
-    	// 		{
-    	// 			date: '10/01/2020 15:30:55',
-    	// 			text: 'Lo sai che ha aperto una nuova pizzeria?',
-    	// 			status: 'sent'
-    	// 		},
-    	// 		{
-    	// 			date: '10/01/2020 15:50:00',
-    	// 			text: 'Si, ma preferirei andare al cinema',
-    	// 			status: 'received'
-    	// 		}
-    	// 	],
-    	// },
-      // {
-    	// 	name: 'Luisa',
-    	// 	avatar: '_4',
-    	// 	visible: true,
-    	// 	messages: [
-    	// 		{
-    	// 			date: '10/01/2020 15:30:55',
-    	// 			text: 'Lo sai che ha aperto una nuova pizzeria?',
-    	// 			status: 'sent'
-    	// 		},
-    	// 		{
-    	// 			date: '10/01/2020 15:50:00',
-    	// 			text: 'Si, ma preferirei andare al cinema',
-    	// 			status: 'received'
-    	// 		}
-    	// 	],
-    	// },
-      // {
-    	// 	name: 'Luisa',
-    	// 	avatar: '_4',
-    	// 	visible: true,
-    	// 	messages: [
-    	// 		{
-    	// 			date: '10/01/2020 15:30:55',
-    	// 			text: 'Lo sai che ha aperto una nuova pizzeria?',
-    	// 			status: 'sent'
-    	// 		},
-    	// 		{
-    	// 			date: '10/01/2020 15:50:00',
-    	// 			text: 'Si, ma preferirei andare al cinema',
-    	// 			status: 'received'
-    	// 		}
-    	// 	],
-    	// },
-      // {
-    	// 	name: 'Luisa',
-    	// 	avatar: '_4',
-    	// 	visible: true,
-    	// 	messages: [
-    	// 		{
-    	// 			date: '10/01/2020 15:30:55',
-    	// 			text: 'Lo sai che ha aperto una nuova pizzeria?',
-    	// 			status: 'sent'
-    	// 		},
-    	// 		{
-    	// 			date: '10/01/2020 15:50:00',
-    	// 			text: 'Si, ma preferirei andare al cinema',
-    	// 			status: 'received'
-    	// 		}
-    	// 	],
-    	// },
-      // {
-    	// 	name: 'Luisa',
-    	// 	avatar: '_4',
-    	// 	visible: true,
-    	// 	messages: [
-    	// 		{
-    	// 			date: '10/01/2020 15:30:55',
-    	// 			text: 'Lo sai che ha aperto una nuova pizzeria?',
-    	// 			status: 'sent'
-    	// 		},
-    	// 		{
-    	// 			date: '10/01/2020 15:50:00',
-    	// 			text: 'Si, ma preferirei andare al cinema',
-    	// 			status: 'received'
-    	// 		}
-    	// 	],
-    	// },
-      //
-      // {
-    	// 	name: 'Luisa',
-    	// 	avatar: '_4',
-    	// 	visible: true,
-    	// 	messages: [
-    	// 		{
-    	// 			date: '10/01/2020 15:30:55',
-    	// 			text: 'Lo sai che ha aperto una nuova pizzeria?',
-    	// 			status: 'sent'
-    	// 		},
-    	// 		{
-    	// 			date: '10/01/2020 15:50:00',
-    	// 			text: 'Si, ma preferirei andare al cinema',
-    	// 			status: 'received'
-    	// 		}
-    	// 	],
-    	// },
-      // {
-    	// 	name: 'Luisa',
-    	// 	avatar: '_4',
-    	// 	visible: true,
-    	// 	messages: [
-    	// 		{
-    	// 			date: '10/01/2020 15:30:55',
-    	// 			text: 'Lo sai che ha aperto una nuova pizzeria?',
-    	// 			status: 'sent'
-    	// 		},
-    	// 		{
-    	// 			date: '10/01/2020 15:50:00',
-    	// 			text: 'Si, ma preferirei andare al cinema',
-    	// 			status: 'received'
-    	// 		}
-    	// 	],
-    	// },
     ]
   },
    methods : {
     caricaUtente: function (index){
       this.utenteSelezionato = index;
+
+
+    },
+    sendMessage: function(){
+      let i = this.utenteSelezionato;
+      let newMsgIndex = this.contacts[i].messages.length;
+      // Crea nuovo oggetto in contacts
+      this.contacts[i].messages[newMsgIndex] ={
+        date: 'oggi',
+        text: 'Messaggio nuovo',
+        status: 'sent'
+      }
+
+      // Forza rendering a video
+      this.$forceUpdate();
+
     }
   }
-    // removeElement: function (index){
-    //   // Rimuovere elemento con funzione .filter
-    //   this.listaTodo = this.listaTodo.filter( (element,i) =>{
-    //     return (i != index);
-    //   });
-    // }
-  // }
 
 });
 Vue.config.devtools = true;
