@@ -80,7 +80,7 @@
 
               <!-- Lista Contacts -->
               <ul>
-                <li class="el-lista-contatto" v-for="contatto in contacts">
+                <li  class="el-lista-contatto" v-for="(contatto, indice) in contacts" @click="caricaUtente(indice)">
                   <img class="user-icon" :src="'./img/avatars/avatar' + contatto.avatar + '.jpg'">
                   {{contatto.name}}
                 </li>
@@ -104,9 +104,9 @@
         <!-- Main top -->
         <div class="main-top">
           <div class="user">
-            <img class="user-icon" src="./img/avatars/avatar_1.jpg" alt="immagine utente">
+            <img class="user-icon" :src="'./img/avatars/avatar' + contacts[utenteSelezionato].avatar + '.jpg'" alt="immagine utente">
             <div class="user-text">
-              <div class="row-1"> {{nomeUtente}}</div>
+              <div class="row-1"> {{contacts[utenteSelezionato].name}}</div>
               <div class="row-2"> Ultimo accesso oggi alle </div>
             </div>
 
@@ -126,28 +126,12 @@
         <!-- Main content -->
         <div class="main-content">
 
-
-          <!-- Test con Fabio -->
-          <input v-model="utenteSelezionato"> /* Selettore provvisorio utente*/
-
-
-          <!-- Messaggio 0 -->
-          <!-- <div :class="contacts[utenteSelezionato].messages[0].status">
-            <span class="msg"> {{contacts[utenteSelezionato].messages[0].text}} </span>
-            <span class="time"> {{contacts[utenteSelezionato].messages[0].date}} </span>
-          </div> -->
-          <!-- /Messaggio 0 -->
-
           <!-- Lista messaggi -->
           <div v-for="(msg, i) in contacts[utenteSelezionato].messages" :class="contacts[utenteSelezionato].messages[i].status">
             <span class="msg"> {{contacts[utenteSelezionato].messages[i].text}} </span>
             <span class="time"> {{contacts[utenteSelezionato].messages[i].date}} </span>
           </div>
           <!-- /Lista messaggi -->
-
-
-
-
 
         </div>
         <!-- /Main content -->

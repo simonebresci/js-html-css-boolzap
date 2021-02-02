@@ -344,13 +344,12 @@ var app = new Vue ({
     	// 	],
     	// },
     ]
+  },
+   methods : {
+    caricaUtente: function (index){
+      this.utenteSelezionato = index;
+    }
   }
-  // methods : {
-    // pushElement: function (){
-    //   if(this.inputAttivita != ''){
-    //     this.listaTodo.push(this.inputAttivita);
-    //   }
-    // },
     // removeElement: function (index){
     //   // Rimuovere elemento con funzione .filter
     //   this.listaTodo = this.listaTodo.filter( (element,i) =>{
