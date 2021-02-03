@@ -2,36 +2,37 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <!-- Titolo del sito -->
     <title>Boolzap</title>
 
     <!-- Font custom Lato -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 
-    <!-- CSS -->
+    <!-- CSS,FontAwesome,Vue -->
     <link rel="stylesheet" href="./css/style.css">
-    <!-- Fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Vue -->
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 
   </head>
+
   <body>
-    <!-- Background fixed (position absolute)-->
+    <!-- BACKGROUND FIXED (position absolute)********************************-->
     <div class="bg-fixed">
-      <!-- Barra superiore + sfondo centrale -->
+      <!-- BARRA SUPERIORE + SFONDO CENTRALE *********-->
       <div class="top"> </div>
       <div class="center"></div>
-    </div>
-    <!-- /Background fixed -->
 
-    <!-- Container sito -->
+    </div>
+    <!-- /BACKGROUND FIXED **************************************************-->
+
+    <!-- CONTAINER SITO *****************************************************-->
     <div id="container">
 
-      <!-- Sidebar sx-->
+      <!-- SIDEBAR SX ********************************-->
       <div class="sidebar-sx">
 
-        <!-- Sidebar sx top -->
+        <!-- SIDEBAR SX TOP -->
         <div class="sidebar-sx-top">
 
           <!-- User -->
@@ -50,9 +51,9 @@
           <!-- /Icone action utente -->
 
         </div>
-        <!-- /Sidebar sx top -->
+        <!-- /SIDEBAR SX TOP -->
 
-        <!-- Sidebar sx content -->
+        <!-- SIDEBAR SX CONTENT -->
         <div class="sidebar-sx-content">
             <!-- Box notifiche -->
             <div class="box-notify">
@@ -84,7 +85,8 @@
 
               <!-- Lista Contacts Originale -->
               <ul>
-                <!-- non dimenticare apici in 'el-lista-contatto', altrimenti non funziona -->
+                <!-- Nota: non dimenticare apici in 'el-lista-contatto',
+                 altrimenti non funziona -->
                 <li
                      v-for="(contatto, indice) in contacts"
                      :class="{'el-lista-contatto': true, invisible: contatto.visible === false}"
@@ -96,25 +98,17 @@
               </ul>
               <!-- Lista contacts Originale-->
 
-              <!-- Lista test -->
-              <ul>
-                <li ></li>
-              </ul>
-
-
-
-
             </div>
             <!-- /Box contacts -->
         </div>
-        <!-- /Sidebar sx content -->
+        <!-- /SIDEBAR SX CONTENT -->
       </div>
-      <!-- /Sidebar sx -->
+      <!-- /SIDEBAR SX******************************** -->
 
-      <!-- Main -->
+      <!-- MAIN ************************************** -->
       <div class="main">
 
-        <!-- Main top -->
+        <!-- MAIN TOP -->
         <div class="main-top">
 
           <!-- Info User selezionato -->
@@ -137,12 +131,9 @@
           <!-- Action chat-->
 
         </div>
-        <!-- /Main top -->
+        <!-- /MAIN TOP -->
 
-
-
-
-        <!-- Main content -->
+        <!-- MAIN CONTENT -->
         <div class="main-content">
 
           <!-- Lista messaggi -->
@@ -153,22 +144,23 @@
           <!-- /Lista messaggi -->
 
         </div>
-        <!-- /Main content -->
+        <!-- /MAIN CONTENT -->
 
 
-        <!-- Main bottom -->
+        <!-- MAIN BOTTOM -->
         <div class="main-bottom action-icon-style1">
           <i class="fa fa-smile-o fa-2x action-icon-style1" aria-hidden="true"></i>
           <input class="new-message" v-model="newMessage" @keyup.enter="sendMessage" placeholder="Nuovo messaggio">
           <i class="fa fa-microphone fa-2x action-icon-style1" aria-hidden="true"></i>
         </div>
-        <!-- /Main bottom -->
+        <!-- /MAIN BOTTOM -->
+
       </div>
-      <!-- /Main -->
+      <!-- /MAIN ************************************  -->
 
 
     </div>
-    <!-- /Container -->
+    <!-- /CONTAINER *********************************************************-->
 
     <!-- Script JS -->
     <script src="./js/main.js" charset="utf-8"></script>
@@ -177,13 +169,6 @@
 </html>
 
 <!-- MIGLIORIE DA FARE -->
-<!--
-1)Inserire commenti
-2)Pulire codice
 
-Creare oggetti generici
-1) Utente + 2 righe di testo
-2) icone grigie cliccabili
-
-
- -->
+<!-- Creare oggetti generici
+1) Utente + 2 righe di testo -->

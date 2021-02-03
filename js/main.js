@@ -1,3 +1,6 @@
+// Includes anzichè startsWith()
+// .map o forEach?
+
 
 // Vue Application
 var app = new Vue ({
