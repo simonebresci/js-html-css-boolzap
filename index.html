@@ -72,18 +72,17 @@
 
             <!-- Box search -->
             <div class="box-search">
-              <div class="chatAll">
+              <div class="chat-search-container">
                 <div class="box-icon"><i class="fa fa-search fa-md" aria-hidden="true"></i></div>
                 <input v-model="chatSearch" @keyup="searchContact" placeholder="Cerca o inizia una nuova chat">
               </div>
-
             </div>
             <!-- /Box search -->
 
             <!-- Box contacts -->
             <div class="box-contacts">
 
-              <!-- Lista Contacts Originale -->
+              <!-- Lista Contacts -->
               <ul>
                 <!-- Nota: non dimenticare apici in 'el-lista-contatto',
                  altrimenti non funziona -->
@@ -96,7 +95,7 @@
                   {{contatto.name}}
                 </li>
               </ul>
-              <!-- Lista contacts Originale-->
+              <!-- /Lista contacts -->
 
             </div>
             <!-- /Box contacts -->
@@ -124,6 +123,7 @@
 
           <!-- Action chat-->
           <div class="user-actions action-icon-style1">
+            <!-- Cerca, allegati, altro -->
             <i class="fa fa-search fa-2x" aria-hidden="true"></i>
             <i class="fa fa-paperclip fa-2x" aria-hidden="true"></i>
             <i class="fa fa-ellipsis-v fa-2x" aria-hidden="true"></i>
@@ -137,8 +137,9 @@
         <div class="main-content">
 
           <!-- Lista messaggi -->
-          <div v-for="(msg, i) in contacts[utenteSelezionato].messages" :class="contacts[utenteSelezionato].messages[i].status">
-            <span class="msg"> {{contacts[utenteSelezionato].messages[i].text}} </span>
+          <div v-for="(msg, i) in contacts[utenteSelezionato].messages" :class="['msg', contacts[utenteSelezionato].messages[i].status]">
+            <!-- Messaggio, ora di invio/ricezione -->
+            <span> {{contacts[utenteSelezionato].messages[i].text}} </span>
             <span class="time"> {{contacts[utenteSelezionato].messages[i].date}} </span>
           </div>
           <!-- /Lista messaggi -->
@@ -149,6 +150,7 @@
 
         <!-- MAIN BOTTOM -->
         <div class="main-bottom action-icon-style1">
+          <!-- Emoticon, nuovo messaggio, registra messaggio vocale -->
           <i class="fa fa-smile-o fa-2x action-icon-style1" aria-hidden="true"></i>
           <input class="new-message" v-model="newMessage" @keyup.enter="sendMessage" placeholder="Nuovo messaggio">
           <i class="fa fa-microphone fa-2x action-icon-style1" aria-hidden="true"></i>
@@ -157,7 +159,6 @@
 
       </div>
       <!-- /MAIN ************************************  -->
-
 
     </div>
     <!-- /CONTAINER *********************************************************-->

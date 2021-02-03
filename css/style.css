@@ -36,7 +36,7 @@
 }
 /* Animazioni icone */
 .action-icon-style1 i:hover{
-  color: rgb(200,200,200);
+  color: rgb(150,150,150);
   cursor:pointer;
 }
 
@@ -45,7 +45,7 @@
 /******* Messages ********/
 
 /* Proprietà comuni */
-.sent, .received{
+.msg{
   display: flex;
   flex-direction: column;
   min-width: 200px;
@@ -53,6 +53,14 @@
   border-radius: 15px;
   color: black;
   margin-bottom: 10px;
+}
+
+/* Personalizzazione ora del messaggio */
+.msg .time{
+  align-self: flex-end;
+  color: rgb(190,190,190);
+  font-size: 16px;
+  transform: translate(10px, 10px);
 }
 
 /* Msg inviato */
@@ -67,13 +75,7 @@
   background-color: white;
 }
 
-/* Personalizzazione ora del messaggio */
-.sent .time, .received .time{
-  align-self: flex-end;
-  color: rgb(190,190,190);
-  font-size: 16px;
-  transform: translate(10px, 10px);
-}
+
 
 /****** /Messages *******/
 
@@ -192,6 +194,7 @@
   text-align: center;
   line-height: 64px;
   color: rgb(142,218,252);
+  transform: scaleX(-1);
   background-color: rgb(242, 241, 255);
   border-radius: 50%;
   margin-right: 15px;
@@ -210,6 +213,7 @@
   color: grey;            /* Controllare colore preciso */
   text-decoration: underline;
   font-size: 16px;
+  cursor: pointer;
 }
 /* /Box notify */
 
@@ -221,7 +225,7 @@
 }
 
 /* Sezione input di ricerca chat - personalizzazione */
-.sidebar-sx-content .box-search .chatAll{
+.sidebar-sx-content .box-search .chat-search-container{
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -230,16 +234,16 @@
   background-color: white;
 }
 
-.sidebar-sx-content .box-search .chatAll .box-icon{
+.sidebar-sx-content .box-search .chat-search-container .box-icon{
   text-align: center;
   width: 15%;
 }
 
-.sidebar-sx-content .box-search .chatAll .box-icon i{
+.sidebar-sx-content .box-search .chat-search-container .box-icon i{
   color: rgb(184,184,184);
 }
 
-.sidebar-sx-content .box-search .chatAll input{
+.sidebar-sx-content .box-search .chat-search-container input{
   width: 85%;
   color: rgb(184,184,184);
   border: 0px;
