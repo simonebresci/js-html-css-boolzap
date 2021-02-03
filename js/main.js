@@ -1,17 +1,21 @@
-// <!-- Milestone 1
-// Replica della grafica con la possibilità di avere messaggi scritti dall’utente (verdi) e dall’interlocutore (bianco) assegnando due classi CSS diverse
-// Visualizzazione dinamica della lista contatti: tramite la direttiva v-for, visualizzare nome e immagine di ogni contatto
-// Copiate nel vostro data l'array di oggetti contacts, che trovate nella cartella drive, oppure qui in allegato. -->
+
+// Milestone 4
+// Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo “mar” rimangono solo Marco e Martina)
 
 
-// Vue
+// Vue Application
 var app = new Vue ({
   el: '#container',
   data: {
+    // UTENTE
     nomeUtente: 'Nome Utente',
+    // RICERCA
     chatSearch: 'Cerca o inizia una nuova chat',
+    // NUOVO MESSAGGIO
     newMessage: 'Nuovo messaggio',
+    // UTENTE SELEZIONATO NELLA CHAT
     utenteSelezionato: 0,
+    // STORICO CHAT
     contacts: [
     	{
     		name: 'Michele',
@@ -99,44 +103,51 @@ var app = new Vue ({
     ]
   },
    methods : {
+    // CARICA CHAT UTENTE
     caricaUtente: function (index){
       this.utenteSelezionato = index;
-
-
     },
+    // INVIA MESSAGGIO
     sendMessage: function(index){
       const i = this.utenteSelezionato;
       const msg = this.newMessage;
-      const time = new Date()
+      const time = (new Date()).toLocaleString()// Utilizzare il .tolocaleString() + replace per togliere la virgola
+
       // Crea nuovo oggetto in contacts
       this.contacts[i].messages.push({
-        date: new Date(),
+        date: time,
         text: msg ,
         status: 'sent'
       });
 
+      // Svuota messaggio
+      this.newMessage = '';
+
       this.setTimeoutMethod();
 
     },
-
+    // SET TIMEOUT METHOD
     setTimeoutMethod: function(){
       // alert('avvio autoResponder');
       setTimeout(this.autoResponder, 1000);
     },
-
+    // AUTORESPONDER - semplice bot
     autoResponder: function(){
       const i = this.utenteSelezionato;
-      // alert(this.utenteSelezionato);
-      // alert('eseguo dopo timeout');
-      this.contacts[i].messages.push({
-        date: new Date(),
+      const time = (new Date()).toLocaleString()// Utilizzare il .tolocaleString() + replace per togliere la virgola
+      // ******* REPLICARE SU sendMessage()
+      const msg ={
+        date: time,
         text: 'ok',
         status: 'received'
-      });
-      // alert('SendMessage eseguito');
+      };
+
+
+      this.contacts[i].messages.push(msg);
     }
 
   }
 
 });
+// TOOL DI SVILUPPO
 Vue.config.devtools = true;

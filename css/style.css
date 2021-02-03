@@ -29,6 +29,8 @@ background-color: rgb(243,238,234);
 icona action
 background-color: rgb(177,177,177);
 
+sidebar-sx lista contatti: hover
+background-color: rgb(237,237,237);
 
 main-top user user 2nd row
 color: rgb(154,168,181);
@@ -66,6 +68,12 @@ color: rgb(190,190,190);
   color: rgb(177,177,177);
   margin-right: 15px;
 }
+
+.action-icon-style1 i:hover{
+  color: rgb(200,200,200);
+  cursor:pointer;
+}
+
 
 .action-icon-style1 i:last-child{
    margin-right: 0px;
@@ -258,6 +266,10 @@ color: rgb(190,190,190);
 .sidebar-sx-content .box-contacts .el-lista-contatto{
   border-bottom: 1px solid rgb(244,244,244); /* mettere colore preciso */
   padding: 10px;
+  cursor: pointer;
+}
+.sidebar-sx-content .box-contacts .el-lista-contatto:hover{
+  background-color: rgb(237,237,237);
 }
 
 .sidebar-sx-content .box-contacts .el-lista-contatto img{

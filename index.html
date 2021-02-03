@@ -19,9 +19,8 @@
   <body>
     <!-- Background fixed (position absolute)-->
     <div class="bg-fixed">
-      <!-- Barra superiore -->
+      <!-- Barra superiore + sfondo centrale -->
       <div class="top"> </div>
-      <!-- Sfondo centrale -->
       <div class="center"></div>
     </div>
     <!-- /Background fixed -->
@@ -35,16 +34,21 @@
         <!-- Sidebar sx top -->
         <div class="sidebar-sx-top">
 
+          <!-- User -->
           <div class="user">
             <img class="user-icon" src="./img/avatars/avatar_io.jpg" alt="immagine utente">
             <span> {{nomeUtente}}</span>
           </div>
+          <!-- /User -->
 
+          <!-- Icone action utente -->
           <div class="user-actions action-icon-style1">
             <i class="fa fa-circle-o-notch fa-2x" aria-hidden="true"></i>
             <i class="fa fa-comment fa-2x" aria-hidden="true"></i>
             <i class="fa fa-ellipsis-v fa-2x" aria-hidden="true"></i>
           </div>
+          <!-- /Icone action utente -->
+
         </div>
         <!-- /Sidebar sx top -->
 
@@ -89,12 +93,8 @@
 
             </div>
             <!-- /Box contacts -->
-
         </div>
         <!-- /Sidebar sx content -->
-
-
-
       </div>
       <!-- /Sidebar sx -->
 
@@ -103,6 +103,8 @@
 
         <!-- Main top -->
         <div class="main-top">
+
+          <!-- Info User selezionato -->
           <div class="user">
             <img class="user-icon" :src="'./img/avatars/avatar' + contacts[utenteSelezionato].avatar + '.jpg'" alt="immagine utente">
             <div class="user-text">
@@ -111,12 +113,16 @@
             </div>
 
           </div>
+          <!-- /Info User selezionato -->
 
+          <!-- Action chat-->
           <div class="user-actions action-icon-style1">
             <i class="fa fa-search fa-2x" aria-hidden="true"></i>
             <i class="fa fa-paperclip fa-2x" aria-hidden="true"></i>
             <i class="fa fa-ellipsis-v fa-2x" aria-hidden="true"></i>
           </div>
+          <!-- Action chat-->
+
         </div>
         <!-- /Main top -->
 
@@ -138,10 +144,10 @@
 
 
         <!-- Main bottom -->
-        <div class="main-bottom">
-          <i class="fa fa-smile-o fa-2x" aria-hidden="true"></i>
+        <div class="main-bottom action-icon-style1">
+          <i class="fa fa-smile-o fa-2x action-icon-style1" aria-hidden="true"></i>
           <input class="new-message" v-model="newMessage" @keyup.enter="sendMessage">
-          <i class="fa fa-microphone fa-2x" aria-hidden="true"></i>
+          <i class="fa fa-microphone fa-2x action-icon-style1" aria-hidden="true"></i>
         </div>
         <!-- /Main bottom -->
       </div>
