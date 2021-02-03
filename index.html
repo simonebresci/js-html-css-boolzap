@@ -73,7 +73,7 @@
             <div class="box-search">
               <div class="chatAll">
                 <div class="box-icon"><i class="fa fa-search fa-md" aria-hidden="true"></i></div>
-                <input v-model="chatSearch">
+                <input v-model="chatSearch" @keyup="searchContact">
               </div>
 
             </div>
@@ -82,14 +82,27 @@
             <!-- Box contacts -->
             <div class="box-contacts">
 
-              <!-- Lista Contacts -->
+              <!-- Lista Contacts Originale -->
               <ul>
-                <li  class="el-lista-contatto" v-for="(contatto, indice) in contacts" @click="caricaUtente(indice)">
+                <!-- non dimenticare apici in 'el-lista-contatto', altrimenti non funziona -->
+                <li
+                     v-for="(contatto, indice) in contacts"
+                     :class="{'el-lista-contatto': true, invisible: contatto.visible === false}"
+                     @click="caricaUtente(indice)">
+
                   <img class="user-icon" :src="'./img/avatars/avatar' + contatto.avatar + '.jpg'">
                   {{contatto.name}}
                 </li>
               </ul>
-              <!-- Lista contacts -->
+              <!-- Lista contacts Originale-->
+
+              <!-- Lista test -->
+              <ul>
+                <li ></li>
+              </ul>
+
+
+
 
             </div>
             <!-- /Box contacts -->

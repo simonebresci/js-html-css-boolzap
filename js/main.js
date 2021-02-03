@@ -42,7 +42,7 @@ var app = new Vue ({
     	{
     		name: 'Fabio',
     		avatar: '_2',
-    		visible: true,
+    		visible: true, //Debugging
     		messages: [
     			{
     				date: '20/03/2020 16:30:00',
@@ -142,9 +142,47 @@ var app = new Vue ({
         status: 'received'
       };
 
-
       this.contacts[i].messages.push(msg);
+    },
+
+    searchContact: function(){
+      // Cerca contatti che iniziano con lettere inserite
+      const stringa = (this.chatSearch).toLowerCase();
+
+      // Mappa proprietà visibile dei contatti ()
+      if (stringa.length < 1){
+        // Mostra tutto - filtro disattivato
+
+        // Applica visibilità a tutti gli elementi
+        (this.contacts).map( (element) =>{
+          element.visible = true;
+        });
+
+      }else{
+
+        (this.contacts).map( (element) =>{
+          // Destrutturazione oggetto
+          let {name} = element;
+
+          // Controlla stringa
+          name = name.toLowerCase();
+          element.visible = false;
+          if (name.startsWith(stringa)){
+            element.visible = true;
+            // alert('ho trovato fabio');
+          }
+
+
+        });
+        // alert('searchContactfinito');
     }
+    },
+
+    mapVisible: function(){
+
+    }
+
+
 
   }
 
