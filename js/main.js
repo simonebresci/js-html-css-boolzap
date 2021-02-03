@@ -105,7 +105,7 @@ var app = new Vue ({
     // INVIA MESSAGGIO *********************************************************
     sendMessage: function(index){
 
-      // Preparazione dati
+      // PREPARAZIONE DATI
       const i = this.utenteSelezionato;
       const msg = this.newMessage;
       const time = ((new Date()).toLocaleString()).replace (',', ''); //Ora locale + eliminazione virgola
@@ -115,9 +115,9 @@ var app = new Vue ({
         status: 'sent'
       };
 
-      // Invio messaggio
+      // INVIO MESSAGGIO
       if (msg.length < 1){
-        // Non inviare messaggio
+      // NON INVIARE MESSAGGIO
       }else{
         // Agggiungi nuovo oggetto messaggio in contacts
         this.contacts[i].messages.push(msgObject);
@@ -134,7 +134,7 @@ var app = new Vue ({
 
     // AUTORESPONDER - semplice bot ********************************************
     autoResponder: function(){
-      // Preparazione dati
+      // PREPARAZIONE DATI
       const i = this.utenteSelezionato;
       const time = ((new Date()).toLocaleString()).replace (',', '');
       const msgObject ={
@@ -143,17 +143,17 @@ var app = new Vue ({
         status: 'received'
       };
 
-      // Aggiungi nuovo oggetto messaggio in contacts
+      // AGGIUNGI NUOVO OGGETTO MESSAGGIO IN CONTACTS
       this.contacts[i].messages.push(msgObject);
     },
 
     // RICERCA CONTATTO - che iniziano con lettere inserite nel filtro**********
     searchContact: function(){
-      //Preparazione dati
+      //PREPARAZIONE DATI
       const stringa = (this.chatSearch).toLowerCase();
       const listaContatti = this.contacts;
 
-      // Caso filtro non in uso
+      // CASO FILTRO NON IN USO
       if (stringa.length < 1){
 
         // Applica visibilità a tutti gli elementi
@@ -161,7 +161,7 @@ var app = new Vue ({
           element.visible = true;
         });
 
-      // Caso filtro attivo
+      // CASO FILTRO ATTIVO
       }else{
 
         // Metti visible true su elementi che iniziano con stringa

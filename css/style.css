@@ -1,4 +1,9 @@
 
+
+/* DETTAGLI EXTRA */
+/* - eliminare bordo nero su cerca chat, quando cliccato */
+
+
 /* Inizializza CSS */
 *{
   padding:0;
@@ -46,12 +51,12 @@
 
 /* Proprietà comuni */
 .msg{
+  color: black;
   display: flex;
   flex-direction: column;
   min-width: 200px;
   padding: 15px;
   border-radius: 15px;
-  color: black;
   margin-bottom: 10px;
 }
 
@@ -74,8 +79,6 @@
   align-self: flex-start;
   background-color: white;
 }
-
-
 
 /****** /Messages *******/
 
@@ -125,7 +128,6 @@
   min-width: 950px;
   height: 95vh;
   min-height: 300px;
-  /* margin-top: calc(5vh / 2); */
   margin: calc(5vh / 2) auto;
 }
 /* /CONTAINER SITO *************************************************************/
@@ -137,7 +139,6 @@
   background-color: rgb(250,250,250);
   height: 100%;
 }
-
 
 /* Sidebar sx & Main-top COMMON ******************/
 .sidebar-sx-top, .main-top{
@@ -167,7 +168,6 @@
 /* Main-top & Main-bottom border *******************/
 .main-top, .main-bottom{
   border-left: 1px solid rgb(216,216,216);
-  /* border-right: 1px solid black; */
 }
 /* Main-top & Main-bottom border *******************/
 
@@ -190,6 +190,7 @@
 /* Icona campanella */
 .sidebar-sx-content .box-notify i{
   width: 64px;
+  min-width: 64px;
   height: 64px;
   text-align: center;
   line-height: 64px;
@@ -221,7 +222,6 @@
 .sidebar-sx-content .box-search{
   height: 60px;
   background-color: rgb(250,250,250);
-
 }
 
 /* Sezione input di ricerca chat - personalizzazione */
@@ -268,11 +268,12 @@
 .sidebar-sx-content .box-contacts .el-lista-contatto{
   border-bottom: 1px solid rgb(244,244,244); /* mettere colore preciso */
   padding: 10px;
-  cursor: pointer;
+
 }
 
 .sidebar-sx-content .box-contacts .el-lista-contatto:hover{
   background-color: rgb(237,237,237);
+  cursor: pointer;
 }
 
 .sidebar-sx-content .box-contacts .el-lista-contatto img{
