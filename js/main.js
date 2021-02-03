@@ -1,5 +1,5 @@
-// Includes anzichè startsWith()
-// .map o forEach?
+
+// todo: Funzione Genera date
 
 
 // Vue Application
@@ -157,7 +157,7 @@ var app = new Vue ({
       if (stringa.length < 1){
 
         // Applica visibilità a tutti gli elementi
-        listaContatti.map( (element) =>{
+        listaContatti.forEach( (element) =>{
           element.visible = true;
         });
 
@@ -165,16 +165,16 @@ var app = new Vue ({
       }else{
 
         // Metti visible true su elementi che iniziano con stringa
-        listaContatti.map( (element) =>{
-          // Destrutturazione oggetto
-          let {name} = element;
-          name = name.toLowerCase(); //Stinga in minuscolo
+        listaContatti.forEach( (element) =>{
+        // Destrutturazione oggetto
+        let {name} = element;
+        name = name.toLowerCase(); //Stinga in minuscolo
 
-          // Imposta visible = true se nome inizia con stringa
-          element.visible = false;  //inizializza a false
-          if (name.startsWith(stringa)){
-            element.visible = true;
-          }
+        // Imposta visible = true se nome inizia con stringa o la contiene
+        element.visible = false;  //inizializza a false
+        if (name.startsWith(stringa) || name.includes(stringa)){
+          element.visible = true;
+        }
         });
       }
     },
