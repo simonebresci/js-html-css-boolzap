@@ -2,7 +2,8 @@
 
 /* DETTAGLI EXTRA */
 /* - eliminare bordo nero su cerca chat, quando cliccato */
-
+/* - Gestione overflow messaggi */
+/* - Campo "ultimo accesso alle" */
 
 /* Inizializza CSS */
 *{
@@ -51,6 +52,7 @@
 
 /* Proprietà comuni */
 .msg{
+  position: relative;
   color: black;
   display: flex;
   flex-direction: column;
@@ -81,6 +83,52 @@
 }
 
 /****** /Messages *******/
+
+/* Menu a tendina Options */
+.menu-options{
+  position: absolute;
+  bottom: -100%;
+  right: 15px;
+
+  color: rgb(50,50,50);
+
+
+  background-color: white;
+  border-radius: 2px;
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.4);
+  /* padding: 15px; */
+  z-index: 99;
+}
+
+.menu-options ul li{
+  font-size: 16px;
+  padding: 15px;
+  cursor: pointer;
+}
+.menu-options ul li:hover{
+  color: black;
+  background-color: rgb(237,237,237);
+  cursor: pointer;
+}
+
+.menu-visible{
+  display: block;
+}
+
+.menu-invisible{
+  display: none;
+}
+
+/* .msg:active .menu-options{
+  display: block;
+} */
+
+
+.plain-list {
+  list-style: none;
+  text-decoration: none;
+}
+/* Menu a tendina Options */
 
 /* /CLASSI GENERICHE ***********************************************************/
 
@@ -259,6 +307,10 @@
   list-style: none;
 }
 
+.sidebar-sx-content .box-contacts ul li{
+  position: relative;
+}
+
 .sidebar-sx-content .box-contacts{
   height: calc(100% - 100px - 60px ); /* 100% - box-notify - box-search */
   background-color: rgb(255,255,255);
@@ -279,6 +331,29 @@
 .sidebar-sx-content .box-contacts .el-lista-contatto img{
   vertical-align: middle;
   margin-right: 15px;
+}
+
+.sidebar-sx-content .box-contacts .el-lista-contatto .user-text{
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 15px;
+}
+
+.sidebar-sx-content .box-contacts .el-lista-contatto .user-text .row-1{
+  margin-bottom: 5px;
+}
+
+.sidebar-sx-content .box-contacts .el-lista-contatto .user-text .row-2{
+  color: rgb(154,168,181);
+  font-size: 16px;
+}
+
+.sidebar-sx-content .box-contacts .el-lista-contatto .user-text .row-3{
+  position: absolute;   /* position relative su li padre */
+  top: 27px;
+  right: 15px;;
+  color: rgb(154,168,181);
+  font-size: 12px;
 }
 /* Box- Contacts */
 

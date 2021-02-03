@@ -92,7 +92,11 @@
                      @click="caricaChatUtente(indice)">
 
                   <img class="user-icon" :src="'./img/avatars/avatar' + contatto.avatar + '.jpg'">
-                  {{contatto.name}}
+                  <div class="user-text">
+                    <div class="row-1"> {{contacts[indice].name}}</div>
+                    <div class="row-2"> {{ultimoMessaggioText(indice)}}   </div>
+                    <div class="row-3"> {{ultimoMessaggioDate(indice)}}   </div>
+                  </div>
                 </li>
               </ul>
               <!-- /Lista contacts -->
@@ -137,10 +141,21 @@
         <div class="main-content">
 
           <!-- Lista messaggi -->
-          <div v-for="(msg, i) in contacts[utenteSelezionato].messages" :class="['msg', contacts[utenteSelezionato].messages[i].status]">
+          <div v-for="(msg, i) in contacts[utenteSelezionato].messages" :class="['msg', contacts[utenteSelezionato].messages[i].status]" @click="apriMenuOptions(i)">
+
             <!-- Messaggio, ora di invio/ricezione -->
             <span> {{contacts[utenteSelezionato].messages[i].text}} </span>
             <span class="time"> {{contacts[utenteSelezionato].messages[i].date}} </span>
+
+            <div :class="{'menu-options':true,
+                         'menu-visible': ((i === msgCliccato)),
+                         'menu-invisible':((i !== msgCliccato))
+                       }">
+              <ul class="plain-list">
+                <li @click="infoMessage(i)"> Message info </li>
+                <li @click="deleteMessage(i)"> Delete message </li>
+              </ul>
+            </div>
           </div>
           <!-- /Lista messaggi -->
 

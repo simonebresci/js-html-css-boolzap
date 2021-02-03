@@ -1,5 +1,16 @@
 
 // todo: Funzione Genera date
+// TODO: controllo input utente
+// TODO: implementare libreria day.js
+
+// Milestone 5 - BONUS.
+// 1)Cancella messaggio: cliccando sul messaggio appare un menu a tendina che permette di cancellare il messaggio selezionato
+// Visualizzazione ora e ultimo messaggio inviato/ricevuto nella lista dei contatti
+//
+// Consigli utili:
+// Si possono trascurare le scrollbar verticali, sia nel pannello dei messaggi, che nella lista dei contatti
+// I pulsanti e le icone possono non funzionare (a parte l’invio del messaggio)
+// Per gestire le date, può essere utile la libreria day.js
 
 
 // Vue Application
@@ -10,6 +21,7 @@ var app = new Vue ({
     chatSearch: '',                 // FILTRO RICERCA CHAT
     newMessage: '',                 // TESTO NUOVO MESSAGGIO
     utenteSelezionato: 0,           // UTENTE SELEZIONATO NELLA CHAT
+    msgCliccato: -1,                  // ULTIMO MESSAGGIO CLICCATO
     contacts: [                     // INFORMAZIONI UTENTE + STORICO CHAT
     	{
     		name: 'Michele',
@@ -178,6 +190,41 @@ var app = new Vue ({
         });
       }
     },
+
+    // BONUS *******************************************************************
+    apriMenuOptions:function(index){
+        this.msgCliccato = index;
+    },
+    infoMessage: function(index){
+      alert('Hai cliccato il messaggio numero: ' + index);
+
+    },
+    deleteMessage: function(index){
+      const utenteCorrente = this.utenteSelezionato;
+      const listaContatti = this.contacts[utenteCorrente];
+      const listaMessaggi = listaContatti.messages
+
+      listaMessaggi.splice(index,1);
+
+    },
+    chiudiMenu: function(){
+      alert('chiudo');
+    },
+    ultimoMessaggioText: function(index){
+      const listaContatti = this.contacts[index];
+      const listaMessaggi = listaContatti.messages
+      const indiceUltimoMessaggio = this.contacts[index].messages.length -1
+
+      return listaMessaggi[indiceUltimoMessaggio].text
+    },
+    ultimoMessaggioDate: function(index){
+      const listaContatti = this.contacts[index];
+      const listaMessaggi = listaContatti.messages
+      const indiceUltimoMessaggio = this.contacts[index].messages.length -1
+
+      return listaMessaggi[indiceUltimoMessaggio].date
+    }
+    // *************************************************************************
 
   }
 
