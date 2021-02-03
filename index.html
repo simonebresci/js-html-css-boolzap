@@ -73,7 +73,7 @@
             <div class="box-search">
               <div class="chatAll">
                 <div class="box-icon"><i class="fa fa-search fa-md" aria-hidden="true"></i></div>
-                <input v-model="chatSearch" @keyup="searchContact">
+                <input v-model="chatSearch" @keyup="searchContact" placeholder="Cerca o inizia una nuova chat">
               </div>
 
             </div>
@@ -159,7 +159,7 @@
         <!-- Main bottom -->
         <div class="main-bottom action-icon-style1">
           <i class="fa fa-smile-o fa-2x action-icon-style1" aria-hidden="true"></i>
-          <input class="new-message" v-model="newMessage" @keyup.enter="sendMessage">
+          <input class="new-message" v-model="newMessage" @keyup.enter="sendMessage" placeholder="Nuovo messaggio">
           <i class="fa fa-microphone fa-2x action-icon-style1" aria-hidden="true"></i>
         </div>
         <!-- /Main bottom -->

@@ -3,6 +3,11 @@
 // Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo “mar” rimangono solo Marco e Martina)
 
 
+
+// Controlli app da implementare
+// - vietare messaggio vuoto
+
+
 // Vue Application
 var app = new Vue ({
   el: '#container',
@@ -10,9 +15,9 @@ var app = new Vue ({
     // UTENTE
     nomeUtente: 'Nome Utente',
     // RICERCA
-    chatSearch: 'Cerca o inizia una nuova chat',
+    chatSearch: '',
     // NUOVO MESSAGGIO
-    newMessage: 'Nuovo messaggio',
+    newMessage: '',
     // UTENTE SELEZIONATO NELLA CHAT
     utenteSelezionato: 0,
     // STORICO CHAT
@@ -111,19 +116,25 @@ var app = new Vue ({
     sendMessage: function(index){
       const i = this.utenteSelezionato;
       const msg = this.newMessage;
-      const time = (new Date()).toLocaleString()// Utilizzare il .tolocaleString() + replace per togliere la virgola
+       //Converti in ora locale ed elimina virgola
+      const time = ((new Date()).toLocaleString()).replace (',', '');
 
-      // Crea nuovo oggetto in contacts
-      this.contacts[i].messages.push({
-        date: time,
-        text: msg ,
-        status: 'sent'
-      });
+      if (msg.length < 1){
+        // Non inviare messaggio
+      }else{
 
-      // Svuota messaggio
-      this.newMessage = '';
+        // Crea nuovo oggetto in contacts
+        this.contacts[i].messages.push({
+          date: time,
+          text: msg ,
+          status: 'sent'
+        });
 
-      this.setTimeoutMethod();
+        // Svuota messaggio
+        this.newMessage = '';
+
+        this.setTimeoutMethod();
+      }
 
     },
     // SET TIMEOUT METHOD
@@ -134,8 +145,9 @@ var app = new Vue ({
     // AUTORESPONDER - semplice bot
     autoResponder: function(){
       const i = this.utenteSelezionato;
-      const time = (new Date()).toLocaleString()// Utilizzare il .tolocaleString() + replace per togliere la virgola
+      const time = ((new Date()).toLocaleString()).replace (',', '');
       // ******* REPLICARE SU sendMessage()
+
       const msg ={
         date: time,
         text: 'ok',
