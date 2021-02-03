@@ -1,27 +1,13 @@
 
-// Milestone 4
-// Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo “mar” rimangono solo Marco e Martina)
-
-
-
-// Controlli app da implementare
-// - vietare messaggio vuoto
-
-
 // Vue Application
 var app = new Vue ({
   el: '#container',
   data: {
-    // UTENTE
-    nomeUtente: 'Nome Utente',
-    // RICERCA
-    chatSearch: '',
-    // NUOVO MESSAGGIO
-    newMessage: '',
-    // UTENTE SELEZIONATO NELLA CHAT
-    utenteSelezionato: 0,
-    // STORICO CHAT
-    contacts: [
+    nomeUtente: 'Nome Utente',      // UTENTE
+    chatSearch: '',                 // FILTRO RICERCA CHAT
+    newMessage: '',                 // TESTO NUOVO MESSAGGIO
+    utenteSelezionato: 0,           // UTENTE SELEZIONATO NELLA CHAT
+    contacts: [                     // INFORMAZIONI UTENTE + STORICO CHAT
     	{
     		name: 'Michele',
     		avatar: '_1',
@@ -47,7 +33,7 @@ var app = new Vue ({
     	{
     		name: 'Fabio',
     		avatar: '_2',
-    		visible: true, //Debugging
+    		visible: true,
     		messages: [
     			{
     				date: '20/03/2020 16:30:00',
@@ -108,93 +94,87 @@ var app = new Vue ({
     ]
   },
    methods : {
-    // CARICA CHAT UTENTE
-    caricaUtente: function (index){
+    // CARICA CHAT UTENTE ******************************************************
+    caricaChatUtente: function (index){
       this.utenteSelezionato = index;
     },
-    // INVIA MESSAGGIO
+
+    // INVIA MESSAGGIO *********************************************************
     sendMessage: function(index){
+
+      // Preparazione dati
       const i = this.utenteSelezionato;
       const msg = this.newMessage;
-       //Converti in ora locale ed elimina virgola
-      const time = ((new Date()).toLocaleString()).replace (',', '');
+      const time = ((new Date()).toLocaleString()).replace (',', ''); //Ora locale + eliminazione virgola
+      const msgObject = {
+        date: time,
+        text: msg ,
+        status: 'sent'
+      };
 
+      // Invio messaggio
       if (msg.length < 1){
         // Non inviare messaggio
       }else{
-
-        // Crea nuovo oggetto in contacts
-        this.contacts[i].messages.push({
-          date: time,
-          text: msg ,
-          status: 'sent'
-        });
-
-        // Svuota messaggio
-        this.newMessage = '';
-
-        this.setTimeoutMethod();
+        // Agggiungi nuovo oggetto messaggio in contacts
+        this.contacts[i].messages.push(msgObject);
+        this.newMessage = ''; // Svuota messaggio
+        this.setTimeoutMethod(this.autoResponder, 1000); // Richiama auto risponditore
       }
 
     },
-    // SET TIMEOUT METHOD
-    setTimeoutMethod: function(){
-      // alert('avvio autoResponder');
-      setTimeout(this.autoResponder, 1000);
+    // SET TIMEOUT METHOD *****************************************************
+    setTimeoutMethod: function(fName, timeMs){
+      setTimeout(fName, timeMs);
     },
-    // AUTORESPONDER - semplice bot
+
+
+    // AUTORESPONDER - semplice bot ********************************************
     autoResponder: function(){
+      // Preparazione dati
       const i = this.utenteSelezionato;
       const time = ((new Date()).toLocaleString()).replace (',', '');
-      // ******* REPLICARE SU sendMessage()
-
-      const msg ={
+      const msgObject ={
         date: time,
         text: 'ok',
         status: 'received'
       };
 
-      this.contacts[i].messages.push(msg);
+      // Aggiungi nuovo oggetto messaggio in contacts
+      this.contacts[i].messages.push(msgObject);
     },
 
+    // RICERCA CONTATTO - che iniziano con lettere inserite nel filtro**********
     searchContact: function(){
-      // Cerca contatti che iniziano con lettere inserite
+      //Preparazione dati
       const stringa = (this.chatSearch).toLowerCase();
+      const listaContatti = this.contacts;
 
-      // Mappa proprietà visibile dei contatti ()
+      // Caso filtro non in uso
       if (stringa.length < 1){
-        // Mostra tutto - filtro disattivato
 
         // Applica visibilità a tutti gli elementi
-        (this.contacts).map( (element) =>{
+        listaContatti.map( (element) =>{
           element.visible = true;
         });
 
+      // Caso filtro attivo
       }else{
 
-        (this.contacts).map( (element) =>{
+        // Metti visible true su elementi che iniziano con stringa
+        listaContatti.map( (element) =>{
           // Destrutturazione oggetto
           let {name} = element;
+          name = name.toLowerCase(); //Stinga in minuscolo
 
-          // Controlla stringa
-          name = name.toLowerCase();
-          element.visible = false;
+          // Imposta visible = true se nome inizia con stringa
+          element.visible = false;  //inizializza a false
           if (name.startsWith(stringa)){
             element.visible = true;
-            // alert('ho trovato fabio');
           }
-
-
         });
-        // alert('searchContactfinito');
-    }
+      }
     },
-
-    mapVisible: function(){
-
-    }
-
-
 
   }
 

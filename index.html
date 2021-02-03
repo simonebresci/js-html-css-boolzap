@@ -88,7 +88,7 @@
                 <li
                      v-for="(contatto, indice) in contacts"
                      :class="{'el-lista-contatto': true, invisible: contatto.visible === false}"
-                     @click="caricaUtente(indice)">
+                     @click="caricaChatUtente(indice)">
 
                   <img class="user-icon" :src="'./img/avatars/avatar' + contatto.avatar + '.jpg'">
                   {{contatto.name}}
