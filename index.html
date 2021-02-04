@@ -95,7 +95,7 @@
                   <img class="user-icon" :src="'./img/avatars/avatar' + contatto.avatar + '.jpg'">
                   <div class="user-text">
                     <div class="row-1"> {{contacts[indice].name}}</div>
-                    <div class="row-2"> {{ultimoMessaggioText(indice)}}   </div>
+                    <div class="row-2"> {{ultimoMessaggioText(indice)}} </div>
                     <div class="row-3"> {{ultimoMessaggioDate(indice)}} </div>
                   </div>
                 </li>
@@ -120,7 +120,7 @@
             <img class="user-icon" :src="'./img/avatars/avatar' + contacts[utenteSelezionato].avatar + '.jpg'" alt="immagine utente">
             <div class="user-text">
               <div class="row-1"> {{contacts[utenteSelezionato].name}}</div>
-              <div class="row-2"> Ultimo accesso oggi alle </div>
+              <div class="row-2"> Ultimo accesso alle {{ultimoAccesso(utenteSelezionato)}} </div>
             </div>
 
           </div>
@@ -142,15 +142,16 @@
         <div class="main-content">
 
           <!-- Lista messaggi -->
-          <div v-for="(msg, i) in contacts[utenteSelezionato].messages" :class="['msg', contacts[utenteSelezionato].messages[i].status]" @click="apriMenuOptions(i)">
+          <div v-for="(msg, i) in contacts[utenteSelezionato].messages"
+              :class="['msg', contacts[utenteSelezionato].messages[i].status]"
+              @click="apriMenuOptions(i)" @mouseleave="chiudiMenuOptions">
 
             <!-- Messaggio, ora di invio/ricezione -->
             <span> {{contacts[utenteSelezionato].messages[i].text}} </span>
             <span class="time"> {{mostraOraMessaggi(utenteSelezionato, i) }}</span>
 
             <div :class="{'menu-options':true,
-                         'menu-visible': ((i === msgCliccato)),
-                         'menu-invisible':((i !== msgCliccato))
+                         'menu-visible': visibilityMenu(i)
                        }">
               <ul class="plain-list">
                 <li @click="infoMessage(i)"> Message info </li>
@@ -184,8 +185,3 @@
     <!-- /Script JS -->
   </body>
 </html>
-
-<!-- MIGLIORIE DA FARE -->
-
-<!-- Creare oggetti generici
-1) Utente + 2 righe di testo -->

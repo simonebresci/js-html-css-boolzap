@@ -1,18 +1,6 @@
+// BUG DA SISTEMARE
+// Todo: ultimoMessaggio() legge undefined se viene cancellato ultimo messaggio --> controllare lunghezza array
 
-// TODO: x controllo input utente
-// todo: Funzione Genera date - implementare libreria day.js
-// TODO: cancellazione messaggio con menu tendina
-// TODO: Consistenza nel resize dopo le modifiche bonus
-// TODO: autoresponder con risposte multiple
-
-// Milestone 5 - BONUS.
-// 1)Cancella messaggio: cliccando sul messaggio appare un menu a tendina che permette di cancellare il messaggio selezionato
-// Visualizzazione ora e ultimo messaggio inviato/ricevuto nella lista dei contatti
-//
-// Consigli utili:
-// Si possono trascurare le scrollbar verticali, sia nel pannello dei messaggi, che nella lista dei contatti
-// I pulsanti e le icone possono non funzionare (a parte l’invio del messaggio)
-// Per gestire le date, può essere utile la libreria day.js
 
 
 // Vue Application
@@ -23,7 +11,7 @@ var app = new Vue ({
     chatSearch: '',                 // FILTRO RICERCA CHAT
     newMessage: '',                 // TESTO NUOVO MESSAGGIO
     utenteSelezionato: 0,           // UTENTE SELEZIONATO NELLA CHAT
-    msgCliccato: -1,                  // ULTIMO MESSAGGIO CLICCATO
+    msgCliccato: -1,                // ULTIMO MESSAGGIO CLICCATO
     contacts: [                     // INFORMAZIONI UTENTE + STORICO CHAT
     	{
     		name: 'Michele',
@@ -138,7 +126,7 @@ var app = new Vue ({
         // Agggiungi nuovo oggetto messaggio in contacts
         this.contacts[i].messages.push(msgObject);
         this.newMessage = ''; // Svuota messaggio
-        this.setTimeoutMethod(this.autoResponder, 1000); // Richiama auto risponditore
+        this.setTimeoutMethod(this.autoResponder(msg), 1000); // Richiama auto risponditore
       }
 
     },
@@ -149,15 +137,31 @@ var app = new Vue ({
 
 
     // AUTORESPONDER - semplice bot ********************************************
-    autoResponder: function(){
+    autoResponder: function(msg){
       // PREPARAZIONE DATI
       const i = this.utenteSelezionato;
       // Spostare formattazione data in funzione dedicata
       let time = ((new Date()).toLocaleString()).replace (',', ''); //Ora locale + eliminazione virgola
       time = dayjs(time).format('MM/DD/YYYY hh:mm:ss');
+      let risposta = 'ok';
+      let msgRicevuto = msg.toLowerCase();
+
+      // Risposte del bot
+      if (msgRicevuto.includes('ciao')){
+        risposta = 'Ciao';
+      }
+      if (msgRicevuto.includes('buongiorno')){
+        risposta = 'Buongiornissimo!Caffè!?';
+      }
+      if (msgRicevuto.includes('buonasera')){
+        risposta = 'Buonasera';
+      }
+      // /Risposte del bot
+
+      //
       const msgObject ={
         date: time,
-        text: 'ok',
+        text: risposta,
         status: 'received'
       };
 
@@ -198,57 +202,91 @@ var app = new Vue ({
     },
 
     // BONUS *******************************************************************
+    // APRI MENU OPTIONS ******************************************************
     apriMenuOptions:function(index){
-        this.msgCliccato = index;
+      this.msgCliccato = index;
     },
+    // INFO MESSAGE ************************************************************
     infoMessage: function(index){
       alert('Hai cliccato il messaggio numero: ' + index);
 
     },
+    // DELETE MESSAGE **********************************************************
     deleteMessage: function(index){
+      // PREPARAZIONE DATI
       const utenteCorrente = this.utenteSelezionato;
       const listaContatti = this.contacts[utenteCorrente];
       const listaMessaggi = listaContatti.messages
 
+      // RIMUOVI ELEMENTO IN POSIZIONE INDEX
       listaMessaggi.splice(index,1);
 
     },
-    chiudiMenu: function(){
-      alert('chiudo');
-    },
+
+    // ULTIMO MESSAGGIO TEXT ***************************************************
     ultimoMessaggioText: function(index){
+      // PREPARAZIONE DATI
       const listaContatti = this.contacts[index];
       const listaMessaggi = listaContatti.messages
       const indiceUltimoMessaggio = this.contacts[index].messages.length -1
       let text = listaMessaggi[indiceUltimoMessaggio].text
-      const maxChar = 20;
+      const maxChar = 40;
 
-      // Accorcia messaggio lungo
+      // ACCORCIA MESSAGGIO LUNGO
       if(text.length > maxChar) {
         text = text.substr(0,maxChar) + '...';
       }
+
       return text;
     },
+    // ULTIMO MESSAGGIO DATA  **************************************************
     ultimoMessaggioDate: function(index){
+      // PREPARAZIONE DATI
       const listaContatti = this.contacts[index];
       const listaMessaggi = listaContatti.messages
       const indiceUltimoMessaggio = this.contacts[index].messages.length -1
 
+      // RITORNA DATA IN FORMATO hh:mm
       return this.mostraOraMessaggi(index, indiceUltimoMessaggio);
     },
+
+    // ULTIMO ACCESSO  *********************************************************
+    ultimoAccesso: function(index){
+
+      // RITORNA DATA ULTIMO MESSAGGIO
+      // Semplificato con ora dell'ultimo messaggio
+      return this.ultimoMessaggioDate(index);
+    },
+
+    // MOSTRA ORA MESSAGGI  ****************************************************
     mostraOraMessaggi: function(indexUtente, indexMessaggio){
-      // alert('Mostra ora Messaggi')
-      // if (indexUtente !== 'undefined' && indexMessaggio !=='undefined'){
-        let newDate = '';
-        const listaContatti = this.contacts[indexUtente];
-        const listaMessaggi = listaContatti.messages;
+      // PREPARAZIONE DATI
+      const listaContatti = this.contacts[indexUtente];
+      const listaMessaggi = listaContatti.messages;
 
-        newDate = (listaMessaggi[indexMessaggio].date).substr(11, 5);
+      // Estrai
+      const newDate = (listaMessaggi[indexMessaggio].date).substr(11, 5);
 
-        return newDate;
-      // }
+
+      return newDate;
+
+    },
+    // VISIBILITA' DROPDOWN  ****************************************************
+    visibilityMenu: function(index){
+      let visible = false;
+      let msgClicked = this.msgCliccato;
+
+      // Visibilità = true se indici uguali
+      if (index === msgClicked) {
+          visible = true;
+      }
+
+      return visible;
+    },
+    // CHIUDI MENU DROPDOWN*****************************************************
+    chiudiMenuOptions: function(){
+      this.msgCliccato = -1;
     }
-    // *************************************************************************
 
   }
 
