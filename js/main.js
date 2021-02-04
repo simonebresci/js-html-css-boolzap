@@ -221,7 +221,8 @@ var app = new Vue ({
       // RIMUOVI ELEMENTO IN POSIZIONE INDEX
       listaMessaggi.splice(index,1);
 
-
+      // CHIUDI MENU OPTIONS
+      chiudiMenuOptions();
     },
 
     // ULTIMO MESSAGGIO TEXT ***************************************************
