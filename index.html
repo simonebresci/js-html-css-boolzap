@@ -9,10 +9,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 
-    <!-- CSS,FontAwesome,Vue -->
+    <!-- CSS,FontAwesome,Vue, Day.js -->
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
 
   </head>
 
@@ -95,7 +96,7 @@
                   <div class="user-text">
                     <div class="row-1"> {{contacts[indice].name}}</div>
                     <div class="row-2"> {{ultimoMessaggioText(indice)}}   </div>
-                    <div class="row-3"> {{ultimoMessaggioDate(indice)}}   </div>
+                    <div class="row-3"> {{ultimoMessaggioDate(indice)}} </div>
                   </div>
                 </li>
               </ul>
@@ -145,7 +146,7 @@
 
             <!-- Messaggio, ora di invio/ricezione -->
             <span> {{contacts[utenteSelezionato].messages[i].text}} </span>
-            <span class="time"> {{contacts[utenteSelezionato].messages[i].date}} </span>
+            <span class="time"> {{mostraOraMessaggi(utenteSelezionato, i) }}</span>
 
             <div :class="{'menu-options':true,
                          'menu-visible': ((i === msgCliccato)),

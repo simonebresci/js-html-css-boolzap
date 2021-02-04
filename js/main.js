@@ -122,7 +122,9 @@ var app = new Vue ({
       // PREPARAZIONE DATI
       const i = this.utenteSelezionato;
       const msg = this.newMessage;
-      const time = ((new Date()).toLocaleString()).replace (',', ''); //Ora locale + eliminazione virgola
+      // Spostare formattazione data in funzione dedicata
+      let time = ((new Date()).toLocaleString()).replace (',', ''); //Ora locale + eliminazione virgola
+      time = dayjs(time).format('MM/DD/YYYY hh:mm:ss');
       const msgObject = {
         date: time,
         text: msg ,
@@ -150,7 +152,9 @@ var app = new Vue ({
     autoResponder: function(){
       // PREPARAZIONE DATI
       const i = this.utenteSelezionato;
-      const time = ((new Date()).toLocaleString()).replace (',', '');
+      // Spostare formattazione data in funzione dedicata
+      let time = ((new Date()).toLocaleString()).replace (',', ''); //Ora locale + eliminazione virgola
+      time = dayjs(time).format('MM/DD/YYYY hh:mm:ss');
       const msgObject ={
         date: time,
         text: 'ok',
@@ -216,15 +220,33 @@ var app = new Vue ({
       const listaContatti = this.contacts[index];
       const listaMessaggi = listaContatti.messages
       const indiceUltimoMessaggio = this.contacts[index].messages.length -1
+      let text = listaMessaggi[indiceUltimoMessaggio].text
+      const maxChar = 20;
 
-      return listaMessaggi[indiceUltimoMessaggio].text
+      // Accorcia messaggio lungo
+      if(text.length > maxChar) {
+        text = text.substr(0,maxChar) + '...';
+      }
+      return text;
     },
     ultimoMessaggioDate: function(index){
       const listaContatti = this.contacts[index];
       const listaMessaggi = listaContatti.messages
       const indiceUltimoMessaggio = this.contacts[index].messages.length -1
 
-      return listaMessaggi[indiceUltimoMessaggio].date
+      return this.mostraOraMessaggi(index, indiceUltimoMessaggio);
+    },
+    mostraOraMessaggi: function(indexUtente, indexMessaggio){
+      // alert('Mostra ora Messaggi')
+      // if (indexUtente !== 'undefined' && indexMessaggio !=='undefined'){
+        let newDate = '';
+        const listaContatti = this.contacts[indexUtente];
+        const listaMessaggi = listaContatti.messages;
+
+        newDate = (listaMessaggi[indexMessaggio].date).substr(11, 5);
+
+        return newDate;
+      // }
     }
     // *************************************************************************
 
