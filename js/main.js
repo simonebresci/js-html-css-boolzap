@@ -1,4 +1,4 @@
-// BUG DA SISTEMARE
+// BUG DA CORREGGERE
 // Todo: ultimoMessaggio() legge undefined se viene cancellato ultimo messaggio --> controllare lunghezza array
 
 
@@ -221,14 +221,16 @@ var app = new Vue ({
       // RIMUOVI ELEMENTO IN POSIZIONE INDEX
       listaMessaggi.splice(index,1);
 
+
     },
 
     // ULTIMO MESSAGGIO TEXT ***************************************************
     ultimoMessaggioText: function(index){
       // PREPARAZIONE DATI
       const listaContatti = this.contacts[index];
-      const listaMessaggi = listaContatti.messages
-      const indiceUltimoMessaggio = this.contacts[index].messages.length -1
+      const listaMessaggi = listaContatti.messages;
+      const indiceUltimoMessaggio = this.contacts[index].messages.length -1;
+
       let text = listaMessaggi[indiceUltimoMessaggio].text
       const maxChar = 40;
 
@@ -238,13 +240,14 @@ var app = new Vue ({
       }
 
       return text;
+
     },
     // ULTIMO MESSAGGIO DATA  **************************************************
     ultimoMessaggioDate: function(index){
       // PREPARAZIONE DATI
       const listaContatti = this.contacts[index];
-      const listaMessaggi = listaContatti.messages
-      const indiceUltimoMessaggio = this.contacts[index].messages.length -1
+      const listaMessaggi = listaContatti.messages;
+      const indiceUltimoMessaggio = this.contacts[index].messages.length -1;
 
       // RITORNA DATA IN FORMATO hh:mm
       return this.mostraOraMessaggi(index, indiceUltimoMessaggio);
