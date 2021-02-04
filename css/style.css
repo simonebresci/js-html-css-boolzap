@@ -2,7 +2,6 @@
 
 /* DETTAGLI EXTRA */
 /* - eliminare bordo nero su cerca chat, quando cliccato */
-/* - Gestione overflow messaggi */
 /* - Campo "ultimo accesso alle" */
 
 /* Inizializza CSS */
@@ -60,6 +59,9 @@
   padding: 15px;
   border-radius: 15px;
   margin-bottom: 10px;
+  /* Parole a capo */
+  word-break: break-all;
+
 }
 
 /* Personalizzazione ora del messaggio */
@@ -297,6 +299,7 @@
   border: 0px;
   padding: 5px;
 }
+
 /* /Sezione input di ricerca chat - personalizzazione */
 
 /* /Box-search */
@@ -340,12 +343,16 @@
 }
 
 .sidebar-sx-content .box-contacts .el-lista-contatto .user-text .row-1{
+  width: 190px;
   margin-bottom: 5px;
 }
 
 .sidebar-sx-content .box-contacts .el-lista-contatto .user-text .row-2{
+  width: 190px;
+  height: 20px;
   color: rgb(154,168,181);
   font-size: 16px;
+  overflow: hidden;
 }
 
 .sidebar-sx-content .box-contacts .el-lista-contatto .user-text .row-3{

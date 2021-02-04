@@ -1,7 +1,9 @@
 
-// todo: Funzione Genera date
-// TODO: controllo input utente
-// TODO: implementare libreria day.js
+// TODO: x controllo input utente
+// todo: Funzione Genera date - implementare libreria day.js
+// TODO: cancellazione messaggio con menu tendina
+// TODO: Consistenza nel resize dopo le modifiche bonus
+// TODO: autoresponder con risposte multiple
 
 // Milestone 5 - BONUS.
 // 1)Cancella messaggio: cliccando sul messaggio appare un menu a tendina che permette di cancellare il messaggio selezionato
