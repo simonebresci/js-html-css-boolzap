@@ -102,6 +102,8 @@ var app = new Vue ({
     // CARICA CHAT UTENTE ******************************************************
     caricaChatUtente: function (index){
       this.utenteSelezionato = index;
+
+      this.chiudiMenuOptions();
     },
 
     // INVIA MESSAGGIO *********************************************************
@@ -226,7 +228,7 @@ var app = new Vue ({
       listaMessaggi.splice(index,1);
 
       // CHIUDI MENU OPTIONS
-      chiudiMenuOptions();
+      this.chiudiMenuOptions();
     },
 
     // ULTIMO MESSAGGIO TEXT ***************************************************
