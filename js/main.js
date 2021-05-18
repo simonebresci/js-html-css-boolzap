@@ -7,7 +7,7 @@
 var app = new Vue ({
   el: '#container',
   data: {
-    nomeUtente: 'Nome Utente',      // UTENTE
+    nomeUtente: 'Elisa Bianchi',    // UTENTE
     chatSearch: '',                 // FILTRO RICERCA CHAT
     newMessage: '',                 // TESTO NUOVO MESSAGGIO
     utenteSelezionato: 0,           // UTENTE SELEZIONATO NELLA CHAT
@@ -111,8 +111,10 @@ var app = new Vue ({
       const i = this.utenteSelezionato;
       const msg = this.newMessage;
       // Spostare formattazione data in funzione dedicata
-      let time = ((new Date()).toLocaleString()).replace (',', ''); //Ora locale + eliminazione virgola
-      time = dayjs(time).format('MM/DD/YYYY hh:mm:ss');
+      let time = ((new Date()).toLocaleString('en-US', { hour12: false })).replace (',', ''); //Ora locale + eliminazione virgola
+      console.log(time);
+      time = dayjs(time).format('MM/DD/YYYY HH:mm:ss');
+      console.log(time);
       const msgObject = {
         date: time,
         text: msg ,
@@ -141,8 +143,10 @@ var app = new Vue ({
       // PREPARAZIONE DATI
       const i = this.utenteSelezionato;
       // Spostare formattazione data in funzione dedicata
-      let time = ((new Date()).toLocaleString()).replace (',', ''); //Ora locale + eliminazione virgola
-      time = dayjs(time).format('MM/DD/YYYY hh:mm:ss');
+
+      
+      let time = ((new Date()).toLocaleString('en-US', { hour12: false })).replace (',', ''); //Ora locale + eliminazione virgola
+      time = dayjs(time).format('MM/DD/YYYY HH:mm:ss');
       let risposta = 'ok';
       let msgRicevuto = msg.toLowerCase();
 
